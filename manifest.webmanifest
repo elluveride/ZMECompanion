@@ -1,0 +1,1 @@
+{"name":"ZME Position Companion","short_name":"ZME Companion","description":"Second-monitor companion for ZME (Memphis ARTCC) VATSIM controllers. VATSIM use only.","start_url":"./","display":"standalone","background_color":"#0f1419","theme_color":"#0f1419","lang":"en","scope":"./","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
