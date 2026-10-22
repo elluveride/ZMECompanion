@@ -1,0 +1,390 @@
+# Airports. `group: major` and `group: minor` appear in the top-bar airport selector;
+# `group: satellite` are uncontrolled/secondary fields listed on APP/DEP and CTR only.
+# hours: list of {days, open, close} in local time (America/Chicago); close < open spans midnight.
+# Omit hours for a 24/7 tower; use `uncontrolled: true` for fields with no tower.
+
+- id: MEM
+  icao: KMEM
+  name: Memphis International
+  group: major
+  tracon: M03
+  class: B
+  elevation: 341
+  dtpp: "00253"
+  runways: [36L, 36C, 36R, 18L, 18C, 18R, "9", "27"]
+  calm_flow: north
+  pdc: true
+  h24: true
+  initial_alt:
+    jet: 5000
+    prop: 3000
+    text: "Turbojets: 5,000 or lower filed altitude. Non-turbojets: 3,000 or lower filed altitude."
+    src: kmem-atct-sop#2-1-2
+  src: [kmem-atct-sop#2-1-1, m03-tracon-sop#3-1-1]
+  facts:
+    - { label: Hours, value: "24/7", src: m03-tracon-sop#3-1-1 }
+    - { label: Calm-wind flow, value: North, src: kmem-atct-sop#4-1-4 }
+    - { label: Pattern altitude, value: "Props 1,300 · Jets 1,800", src: kmem-atct-sop#4-1-2, flag: D2 }
+    - { label: VFR in/out of the Class B, value: Issue an appropriate VFR altitude, src: kmem-atct-sop#4-1-2 }
+    - { label: Local airspace, value: "SFC–2,000. 8 NM arc from MEM VORTAC R-270 clockwise to R-090; 5 NM arc from R-270 counterclockwise to R-090", src: kmem-atct-sop#4-1-1 }
+    - { label: MSA (30 NM), value: "2,500", src: "reference-card#Runways" }
+    - { label: V/A minimum ceiling, value: "2,200", src: "reference-card#Runways" }
+  approaches:
+    src: "reference-card#Runways"
+    rows:
+      - { rwy: 36L, iaf: FREAZ, alt: 4000, freq: "108.900", cat23: true }
+      - { rwy: 36C, iaf: NESBT, alt: 3000, freq: "110.500", cat23: true }
+      - { rwy: 36R, iaf: HADAN, alt: 3000, freq: "111.350", cat23: true }
+      - { rwy: 18L, iaf: REISE, alt: 3000, freq: "111.150" }
+      - { rwy: 18C, iaf: LAURI, alt: 3000, freq: "111.950" }
+      - { rwy: 18R, iaf: MCVEY, alt: 4000, freq: "109.900" }
+      - { rwy: "9", iaf: BUDEE, alt: 2000, freq: "109.500" }
+      - { rwy: "27", iaf: GRIIT, alt: 3000, freq: "108.700" }
+
+- id: BNA
+  icao: KBNA
+  name: Nashville International
+  group: major
+  tracon: BNA_TRACON
+  class: C
+  elevation: 599
+  dtpp: "00282"
+  runways: [2L, 2C, 2R, 20L, 20C, 20R, "13", "31"]
+  calm_flow: south
+  pdc: true
+  initial_alt:
+    jet: 4000
+    prop: 4000
+    text: "RNAV SID requesting ≥15,000: \"climb via SID\". RNAV SID requesting <15,000: \"climb via SID except maintain 4,000\". Props / no SID: maintain 4,000."
+    src: kbna-atcttracon-sop#2-1-2
+  src: [kbna-atcttracon-sop#2-1-1]
+  facts:
+    - { label: Calm-wind flow, value: South, src: kbna-atcttracon-sop#4-1-4 }
+    - { label: Pattern altitude, value: "Props 1,600 · Jets 2,100", src: kbna-atcttracon-sop#4-1-2 }
+    - { label: Local airspace, value: "8 mi arc on the departure end SFC–4,000; 5 mi arc on the arrival side SFC–2,000. Local does not own the 500 ft above for VFR.", src: kbna-atcttracon-sop#4-1-1 }
+    - { label: Go-around / missed, value: "Runway heading and 4,000; coordinate with the overlying radar controller", src: kbna-atcttracon-sop#4-1-3 }
+    - { label: Reduced separation, value: "2.5 NM on final approved for 2L, 2C, 2R, 20R, 20L", src: kbna-atcttracon-sop#4-2-1 }
+    - { label: "VFR to JWN / MQY below 3,000", value: Assign the appropriate tower frequency, src: kbna-atcttracon-sop#2-1-2 }
+    - { label: SAID, value: "No safety logic — follow 7110.65 3-9-4 LUAW rules for airports without safety logic", src: kbna-atcttracon-sop#3-1-3 }
+    - { label: MSA (30 NM), value: "3,000", src: "reference-card#Runways" }
+    - { label: V/A minimum ceiling, value: "2,500", src: "reference-card#Runways" }
+  approaches:
+    src: "reference-card#Runways"
+    rows:
+      - { rwy: 20L, iaf: MRNDA, alt: 6000, freq: "109.350" }
+      - { rwy: 20R, iaf: GUITR, freq: "111.300" }
+      - { rwy: 2L, iaf: DIFFE, freq: "109.900", cat23: true }
+      - { rwy: 2C, iaf: LKBYN, freq: "110.750" }
+      - { rwy: 2R, iaf: JTURN, freq: "111.750", cat23: true }
+      - { rwy: "31", iaf: LLYNN, alt: 6000, freq: "111.950" }
+      - { rwy: "13", iaf: CEPAX, alt: 3100, nav: RNAV }
+      - { rwy: 20C, iaf: TANDS, alt: 3000, nav: RNAV }
+
+- id: LIT
+  icao: KLIT
+  name: Bill and Hillary Clinton National / Adams Field
+  group: major
+  tracon: LIT_TRACON
+  class: C
+  elevation: 266
+  dtpp: "00233"
+  runways: [4L, 4R, 22L, 22R, "18", "36"]
+  calm_flow: northeast
+  pdc: true
+  initial_alt:
+    jet: 4000
+    prop: 4000
+    text: "IFR: 4,000 or lower filed altitude. VFR: at or below 2,000."
+    src: klit-atcttracon-sop#2-1-2
+  src: [klit-atcttracon-sop#2-1-1]
+  facts:
+    - { label: Calm-wind configuration, value: Northeast, src: klit-atcttracon-sop#4-1-4, flag: D11 }
+    - { label: Departure frequency (combined), value: "Radar West 119.500", src: klit-atcttracon-sop#2-1-3 }
+    - { label: Departure frequency (split), value: "040–239 magnetic bearing from LIT → Radar East 135.400; 240–039 → Radar West 119.500", src: klit-atcttracon-sop#2-1-3 }
+    - { label: Pattern altitude, value: "1,800", src: "reference-card#Runways" }
+    - { label: MSA (30 NM), value: "3,300", src: "reference-card#Runways" }
+    - { label: V/A minimum ceiling, value: "2,300", src: "reference-card#Runways" }
+  approaches:
+    src: "reference-card#Runways"
+    rows:
+      - { rwy: 4L, iaf: LASKY, alt: 1900, freq: "110.300" }
+      - { rwy: 4R, iaf: GETTY, alt: 2300, freq: "111.300" }
+      - { rwy: 22L, iaf: CALAY, alt: 2500, freq: "110.700" }
+      - { rwy: 22R, iaf: SHERR, alt: 1900, freq: "110.300" }
+      - { rwy: "18", iaf: ALMOW, alt: 2700, nav: RNAV }
+      - { rwy: "36", iaf: FEHXE, alt: 3300, nav: RNAV }
+
+- id: JAN
+  icao: KJAN
+  name: Jackson–Medgar Wiley Evers International
+  group: major
+  tracon: JAN_TRACON
+  class: C
+  elevation: 346
+  dtpp: "05132"
+  runways: [16L, 16R, 34L, 34R]
+  calm_flow: calm
+  pdc: false
+  hours: [{ days: daily, open: "0700", close: "0000" }]
+  initial_alt:
+    jet: 5000
+    prop: 5000
+    text: "IFR: 5,000 or requested altitude, whichever is lower; above 5,000 → expect filed 10 minutes after departure. Practice approaches: runway heading and 3,000. VFR: at or below 2,500."
+    src: minor-field-reference#KJAN 2.1
+    flag: D3
+  dep_freq_order:
+    src: minor-field-reference#KJAN Table 3
+    rows:
+      - { label: Jackson Approach, freq: "123.900" }
+      - { label: Memphis Center, freq: "132.550" }
+  src: [minor-field-reference#KJAN]
+  facts:
+    - { label: Airspace, value: "Class C / E, SFC–4,400", src: minor-field-reference#KJAN Table 2 }
+    - { label: Tower hours, value: "0700–0000 local", src: minor-field-reference#KJAN Table 2 }
+    - { label: Tower delegated airspace, value: "5 NM radius, 2,500 and below", src: minor-field-reference#KJAN 2.2 }
+    - { label: Departure corridor, value: "Straight out to 5 NM, 5,000 and below; 34R/L headings 300°–010°, 16L/R headings 120°–190°", src: minor-field-reference#KJAN 2.2 }
+    - { label: Go-around, value: "Notify the receiving radar controller; runway heading and 3,000 unless otherwise coordinated", src: minor-field-reference#KJAN 2.2 }
+    - { label: Calm-wind runway, value: "16L (depart and arrive)", src: "reference-card#Runways" }
+    - { label: Pattern altitude, value: "1,900", src: "reference-card#Runways" }
+    - { label: MSA (30 NM), value: "3,400", src: "reference-card#Runways" }
+  approaches:
+    src: "reference-card#Runways"
+    rows:
+      - { rwy: 16L, iaf: HARAG, alt: 2200, freq: "110.500", cat23: true }
+      - { rwy: 34L, iaf: DABEY, alt: 1800, freq: "110.500" }
+      - { rwy: 16R, iaf: MOPKE, alt: 3000, nav: RNAV }
+      - { rwy: 16R, iaf: JONHA, alt: 2000, nav: TACAN }
+      - { rwy: 34R, iaf: MASPY, alt: 3000, nav: RNAV }
+  procedures:
+    - role: GND
+      src: minor-field-reference#KJAN 2.1
+      items:
+        - "IFR departures: 5,000 or requested altitude, whichever is lower. Requests above 5,000: expect filed altitude 10 minutes after departure."
+        - "Practice approaches with TRACON: runway heading and 3,000 unless otherwise coordinated."
+        - "VFR departures: at or below 2,500."
+    - role: TWR
+      src: minor-field-reference#KJAN 2.2
+      items:
+        - "All IFR departures get headings within the departure corridor corresponding to their first assigned fix."
+        - "VFR departures: after conflicts are resolved, assign on course; otherwise nearest appropriate heading. Never within 30° either side of the reciprocal of the final approach course for the ATIS runway."
+        - "TRACON sets the approach sequence; Tower sets the landing sequence."
+        - "VFR arrivals: LC owns them on transfer of communications and issues pattern entry and sequence."
+    - role: APP
+      src: minor-field-reference#KJAN 2.3
+      items:
+        - "Hand off VFR aircraft to tower for sequencing and pattern entry no later than 10 NM from the field, or as soon as practical."
+
+- id: HSV
+  icao: KHSV
+  name: Huntsville International
+  group: major
+  tracon: HSV_TRACON
+  class: C
+  elevation: 629
+  dtpp: "05488"
+  runways: [18L, 18R, 36L, 36R]
+  calm_flow: south
+  pdc: false
+  initial_alt:
+    jet: 5000
+    prop: 5000
+    text: "IFR: route via the HSV# departure, 5,000 or lower filed altitude. VFR: runway heading, at or below 3,000."
+    src: khsv-atcttracon-sop#2-2-1
+  src: [khsv-atcttracon-sop#2-1-1]
+  facts:
+    - { label: Calm-wind configuration, value: "South (land and depart 18L & 18R)", src: khsv-atcttracon-sop#2-3-2 }
+    - { label: Headings without coordination, value: "Departing south 150 clockwise to 210; departing north 330 clockwise to 030", src: khsv-atcttracon-sop#2-3-1 }
+    - { label: Pattern altitude, value: "2,200", src: "reference-card#Runways" }
+    - { label: MSA (30 NM), value: "3,700", src: "reference-card#Runways" }
+    - { label: V/A minimum ceiling, value: "2,800", src: "reference-card#Runways" }
+  approaches:
+    src: "reference-card#Runways"
+    rows:
+      - { rwy: 18L, iaf: BOLAY, alt: 3000, freq: "111.900" }
+      - { rwy: 18R, iaf: JASEX, alt: 3000, freq: "109.300", cat23: true }
+      - { rwy: 36L, iaf: BOSAC, alt: 2800, freq: "108.500" }
+      - { rwy: 36R, iaf: ENIKY, alt: 3000, freq: "109.550" }
+
+# ---------------- Minor fields (Minor Field Reference, version G) ----------------
+
+- id: OLV
+  icao: KOLV
+  name: Olive Branch
+  group: minor
+  tracon: M03
+  class: D
+  elevation: 401
+  dtpp: "05883"
+  runways: ["18", "36"]
+  pdc: false
+  hours: [{ days: daily, open: "0700", close: "2100" }]
+  initial_alt: { jet: 2000, prop: 2000, text: "2,000; expect filed cruise altitude (if higher) ten minutes after departure.", src: minor-field-reference#KOLV 2.1 }
+  release: { type: per_aircraft, text: "Per-aircraft releases from M03 unless M03 permits blanket releases. Automatic releases still need a rolling call.", src: minor-field-reference#KOLV 2.2 }
+  dep_freq_order:
+    src: minor-field-reference#KOLV Table 3
+    rows:
+      - { label: Memphis Departure, freq: "126.050" }
+      - { label: Memphis Departure, freq: "124.150" }
+      - { label: Memphis Center, freq: "132.550" }
+  src: [minor-field-reference#KOLV, m03-tracon-sop#3-1-1]
+  facts:
+    - { label: Airspace, value: "Class D / E, SFC–2,900 (4 NM radius); Class D under the MEM Class B extends SFC–1,799", src: minor-field-reference#KOLV 2.2 }
+    - { label: Tower hours, value: "0700–2100 local", src: m03-tracon-sop#3-1-1 }
+    - { label: IFR departure heading, value: "Rwy 36: turn heading 090 (unless M03 requests different). Rwy 18: runway heading.", src: minor-field-reference#KOLV 2.2 }
+    - { label: Class B caution, value: "MEM Class B surface area begins 2.5 NM NW of OLV; outer shelf begins at 1,800. Takeoff clearance is not a Class B clearance.", src: minor-field-reference#KOLV 2.2 }
+    - { label: Tower closed, value: "When OLV tower is closed and Final 9/27 (ARN) is not staffed, Arrival East issues OLV departure clearances", src: m03-tracon-sop#2-2-2 }
+  approaches:
+    src: "reference-card#Minor field approaches"
+    rows:
+      - { rwy: "18", iaf: EFPUB, alt: 2500, freq: "109.300", nav: ILS }
+      - { rwy: "36", iaf: DOCAP, alt: 2000, freq: "111.550", nav: LOC/DME }
+  procedures:
+    - role: GND
+      src: minor-field-reference#KOLV 2.1
+      items:
+        - "Issue clearances to departing IFR aircraft: maintain 2,000, expect filed cruise altitude (if higher) ten minutes after departure."
+        - "Departure frequency from Table 3 — first staffed option wins, moving down the list."
+        - "Control ground traffic on all movement areas except active runways."
+        - "Ensure departures have the current altimeter or pertinent departure information; current ATIS meets this."
+    - role: TWR
+      src: minor-field-reference#KOLV 2.2
+      items:
+        - "Per-aircraft IFR releases from M03 via landline, unless M03 permits blanket releases. Automatic releases still need a rolling call."
+        - "VFR departing OLV to land MEM: hand off directly to MEM ATCT as soon as practical. Before departure, coordinate squawk and release with MEM ATCT; if MEM can't accept the aircraft into the Class B, an EDCT is issued."
+        - "Good practice: advise departing VFR to \"remain clear of Memphis Class B airspace\"."
+
+- id: NQA
+  icao: KNQA
+  name: Millington-Memphis
+  group: minor
+  tracon: M03
+  class: D
+  elevation: 319
+  dtpp: "00910"
+  runways: ["4", "22"]
+  pdc: false
+  hours:
+    - { days: Mon, open: "0900", close: "0200" }
+    - { days: Tue-Fri, open: "0530", close: "0200" }
+    - { days: Sat-Sun, open: "0530", close: "1900" }
+  initial_alt: { jet: 2000, prop: 2000, text: "2,000; expect filed cruise altitude (if higher) ten minutes after departure.", src: minor-field-reference#KNQA 2.1 }
+  release: { type: per_aircraft, text: "Per-aircraft releases from M03 unless M03 permits blanket releases. Automatic releases still need a rolling call.", src: minor-field-reference#KNQA 2.2 }
+  dep_freq_order:
+    src: minor-field-reference#KNQA Table 3
+    rows:
+      - { label: Memphis Departure, freq: "124.150" }
+      - { label: Memphis Departure, freq: "125.800" }
+      - { label: Memphis Center, freq: "132.550" }
+  src: [minor-field-reference#KNQA, m03-tracon-sop#3-1-1]
+  facts:
+    - { label: Airspace, value: "Class D / E, SFC–2,800 (5 NM radius); underlies the MEM Class B", src: minor-field-reference#KNQA 2.2 }
+    - { label: Tower hours, value: "Mon 0900–0200 · Tue–Fri 0530–0200 · Sat–Sun 0530–1900 (local)", src: m03-tracon-sop#3-1-1 }
+    - { label: Runway use, value: "Follows MEM flow: MEM landing north → NQA landing 04; MEM landing south → NQA landing 22. Independent: land 22, depart 04.", src: minor-field-reference#KNQA 2.2 }
+    - { label: IFR departure heading, value: "Rwy 04: runway heading (unless M03 requests different). Rwy 22: heading 060 or 140 by direction of flight.", src: minor-field-reference#KNQA 2.2 }
+    - { label: Class B caution, value: "MEM Class B outer shelf at 3,000; 1,800 shelf begins 5 NM south of NQA. Takeoff/landing clearance is not a Class B clearance.", src: minor-field-reference#KNQA 2.2 }
+    - { label: Non-movement, value: "All ramp south/southeast of taxiway A", src: minor-field-reference#KNQA 2.1 }
+  approaches:
+    src: "reference-card#Minor field approaches"
+    rows:
+      - { rwy: "22", iaf: RYBRN, alt: 2500, freq: "109.750", nav: ILS }
+  procedures:
+    - role: GND
+      src: minor-field-reference#KNQA 2.1
+      items:
+        - "Issue clearances to departing IFR aircraft: maintain 2,000, expect filed cruise altitude (if higher) ten minutes after departure."
+        - "Departure frequency from Table 3 — first staffed option wins, moving down the list."
+        - "All ramp space south/southeast of taxiway A is non-movement."
+    - role: TWR
+      src: minor-field-reference#KNQA 2.2
+      items:
+        - "Per-aircraft IFR releases from M03 via landline, unless M03 permits blanket releases. Automatic releases still need a rolling call."
+        - "Example VFR: \"Cessna 182TN, right downwind departure approved, remain clear of Memphis Class B airspace, runway 22, cleared for takeoff.\""
+
+- id: PAH
+  icao: KPAH
+  name: Barkley Regional (Paducah)
+  group: minor
+  tracon: ZME
+  class: D
+  elevation: 410
+  dtpp: "00628"
+  runways: ["5", "23"]
+  pdc: false
+  hours: [{ days: daily, open: "0600", close: "2300" }]
+  initial_alt: { jet: 3000, prop: 3000, text: "3,000; expect filed cruise altitude (if higher) ten minutes after departure.", src: minor-field-reference#KPAH 2.1 }
+  release: { type: per_aircraft, text: "Per-aircraft releases from ZME unless the ARTCC permits blanket releases. Automatic releases still need a rolling call.", src: minor-field-reference#KPAH 2.2 }
+  dep_freq_order:
+    src: minor-field-reference#KPAH Table 3
+    rows:
+      - { label: Memphis Center, freq: "132.550" }
+  src: [minor-field-reference#KPAH]
+  facts:
+    - { label: Airspace, value: "Class D / E, SFC–2,900 (4 NM radius)", src: minor-field-reference#KPAH 2.2 }
+    - { label: Tower hours, value: "0600–2300 local", src: minor-field-reference#KPAH Table 2 }
+    - { label: IFR departure heading, value: "All runways: runway heading unless coordinated or requested by ZME", src: minor-field-reference#KPAH 2.2 }
+    - { label: Runway use, value: "05/23 primary for departures and arrivals; air carriers 05/23 only", src: minor-field-reference#KPAH 2.2 }
+    - { label: Non-movement, value: "Midwest Aviation and air-carrier ramps", src: minor-field-reference#KPAH 2.1 }
+    - { label: Long release wait, value: "Taxi the IFR departure into the Runway 23 hold pad", src: minor-field-reference#KPAH 2.1 }
+  procedures:
+    - role: GND
+      src: minor-field-reference#KPAH 2.1
+      items:
+        - "Issue clearances to departing IFR aircraft: maintain 3,000, expect filed cruise altitude (if higher) ten minutes after departure."
+        - "Departure frequency: Memphis Center 132.550."
+        - "Long delay expected awaiting release → taxi into the Runway 23 hold pad."
+
+- id: XNA
+  icao: KXNA
+  name: Northwest Arkansas National
+  group: minor
+  tracon: RZC
+  class: C
+  elevation: 1288
+  dtpp: "09274"
+  runways: [16L, 16R, 34L, 34R]
+  pdc: false
+  hours: [{ days: daily, open: "0530", close: "2300" }]
+  initial_alt: { jet: 5000, prop: 5000, text: "5,000 and East Radar frequency; SID (HIGHFILL NINE) or its heading if the pilot requests no SID.", src: minor-field-reference#KXNA 2.1 }
+  release: { type: per_aircraft, text: "Obtain a release from Razorback Approach for all IFR, SVFR and practice-approach aircraft. Releases are valid for 3 minutes.", src: minor-field-reference#KXNA 2.2 }
+  dep_freq_order:
+    src: minor-field-reference#KXNA Table 3
+    rows:
+      - { label: Razorback Approach, freq: "126.600" }
+      - { label: Memphis Center, freq: "132.550" }
+  src: [minor-field-reference#KXNA]
+  facts:
+    - { label: Airspace, value: "Class C / G, SFC–5,300", src: minor-field-reference#KXNA Table 2 }
+    - { label: Tower hours, value: "0530–2300 local", src: minor-field-reference#KXNA Table 2 }
+    - { label: SID, value: "HIGHFILL NINE: Rwy 16 H180, Rwy 34 H339, radar vectors, climb 5,000", src: "reference-card#Other airports SIDs" }
+    - { label: VFR headings, value: "Rwy 16: 160 or 200; Rwy 34: 320 or 360 — whichever is closer to the requested direction", src: minor-field-reference#KXNA 2.2 }
+    - { label: Primary IFR runway, value: "34R/16L — no instrument approaches to 34L/16R", src: minor-field-reference#KXNA 2.2 }
+    - { label: Hold-short caution, value: "~75 ft between 34L and 34R hold-short markings; larger aircraft may not clear one while holding short of the other", src: minor-field-reference#KXNA 2.2 }
+  approaches:
+    src: "reference-card#Minor field approaches"
+    rows:
+      - { rwy: 16L, iaf: HUNTO, alt: 3400, freq: "111.550", nav: ILS }
+      - { rwy: 34R, iaf: LNDSY, alt: 3400, freq: "111.550", nav: ILS }
+  procedures:
+    - role: GND
+      src: minor-field-reference#KXNA 2.1
+      items:
+        - "Issue IFR clearances using SIDs. If the pilot requests no SID, the SID heading is assigned on departure."
+        - "Enter VFR flight plan information into STARS or the NAS as appropriate."
+        - "Assign initial altitude 5,000 and the East Radar frequency."
+        - "Control all movement areas except the active runways and the taxiways between 34L and 34R."
+    - role: TWR
+      src: minor-field-reference#KXNA 2.2
+      items:
+        - "Release from Razorback Approach for all IFR, SVFR, practice approaches — valid 3 minutes."
+        - "IFR aircraft are released on the SID or the SID initial heading unless otherwise coordinated."
+        - "VFR aircraft that initially contact Tower: instruct to contact Approach for radar sequencing."
+
+# ---------------- M03 satellites (M03 SOP 3-1-1) — no tower data transcribed ----------------
+- { id: M01, icao: M01, name: General Dewitt Spain, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: AWM, icao: KAWM, name: West Memphis, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: 2M8, icao: 2M8, name: Charles W Baker, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: UTA, icao: KUTA, name: Tunica Municipal, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: M41, icao: M41, name: Holly Springs-Marshall County, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: FYE, icao: KFYE, name: Fayette County, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: M04, icao: M04, name: Covington Municipal, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }
+- { id: 7M4, icao: 7M4, name: Osceola Municipal, group: satellite, tracon: M03, uncontrolled: true, runways: [], src: [m03-tracon-sop#3-1-1] }

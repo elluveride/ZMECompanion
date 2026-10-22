@@ -1,0 +1,37 @@
+# Departure heading rules. Matching (src/lib/departure.ts): same airport, flow (if set) and runway
+# filter (if set); aircraft class; then the most specific rule wins — a rule listing the SID /
+# ELVIS transition beats a rule that only matches the east/west side.
+
+# ---- MEM ATCT SOP 4-1-5: ELVIS, No-SID and VFR aircraft, and RNAV turbojets when a preceding
+# conflicting non-turbojet departure is within 7 NM of the Departure Climb Area. ----
+- { airport: MEM, flow: north, aircraft: jet, side: west, group: BEEAL, heading: 330, sids: [PIEPE, BINKY, AUTMN, CHLDR, DUCKZ, ZUMIT, HOTRD, NIKEI, OLEMS], elvis: [SONEI, STWOO, STREE, SFOUR, WONEE, WTWOO, WTREE, WFOUR, WFIVE], src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: north, aircraft: jet, side: west, group: DLONG, heading: 350, sids: [GRRIZ, JTEEE], elvis: [NRONE, NTWOO], src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: north, aircraft: prop, side: west, group: West props, heading: 315, src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: north, aircraft: jet, side: east, group: SLONN, heading: 15, sids: [SELPH, CRSON, GENEH], elvis: [NTREE, NFOUR, NFIVE], src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: north, aircraft: jet, side: east, group: JAAXX, heading: 30, sids: [GOETZ, AZONE, BBKNG, GMBUD], elvis: [EONEE, ETWOO, ETREE, EFOUR], src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: north, aircraft: prop, side: east, group: East props, heading: 45, src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: south, aircraft: jet, side: west, group: CHETO, heading: 200, sids: [CHLDR, DUCKZ, ZUMIT, NIKEI, HOTRD, GRRIZ, JTEEE], elvis: [WONEE, WTWOO, WTREE, WFOUR, WFIVE, NRONE, NTWOO], src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: south, aircraft: jet, side: west, group: EMIIT, heading: 180, sids: [OLEMS, PIEPE, BINKY, AUTMN], elvis: [SONEI, STWOO, STREE, SFOUR], src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: south, aircraft: prop, side: west, group: West props, heading: 220, src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: south, aircraft: jet, side: east, group: RIBZZ, heading: { 18C: 165, 18L: 160 }, src: kmem-atct-sop#4-1-5 }
+- { airport: MEM, flow: south, aircraft: prop, side: east, group: East props, heading: 140, src: kmem-atct-sop#4-1-5 }
+
+# ---- BNA SOP 4-1-5: DTA headings for jets not flying the RNAV SID (by runway, by gate). ----
+- { airport: BNA, runways: [20L, 20R, 20C], aircraft: jet, side: west, group: DRURY gate, heading: 200, sids: [DRURY], src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: [20L, 20R, 20C], aircraft: jet, side: west, group: Other DRW gates, heading: 250, src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: [20L, 20R, 20C], aircraft: jet, side: east, group: TIPPN/FLAME gates, heading: 200, sids: [TIPPN, FLAME], note: "DRE points out TIPPN/FLAME gates before they leave the departure release area", src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: [20L, 20R, 20C], aircraft: jet, side: east, group: Other DRE gates, heading: 160, src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: [2L, 2R, 2C], aircraft: jet, side: west, group: GDOGG/KRSTA gates, heading: 20, sids: [GDOGG, KRSTA], src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: [2L, 2R, 2C], aircraft: jet, side: west, group: Other DRW gates, heading: 345, note: "Runway heading until the 3 NM tick on the TCW", src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: [2L, 2R, 2C], aircraft: jet, side: east, group: All DRE gates, heading: 55, note: "Do not let eastbound traffic overfly the terminal", src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: ["13"], aircraft: jet, side: east, group: All DRE gates, heading: "110, 150 or 180", src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: ["13"], aircraft: jet, side: west, group: All DRW gates, heading: 260, src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: ["31"], aircraft: jet, side: west, group: All DRW gates, heading: "280 at 1 DME", src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, runways: ["31"], aircraft: jet, side: east, group: All DRE gates, heading: 50, src: kbna-atcttracon-sop#4-1-5 }
+- { airport: BNA, aircraft: prop, group: Props, heading: "Within the departure release area for the appropriate departure sector", src: kbna-atcttracon-sop#4-1-5 }
+
+# ---- LIT SOP 4-1-5: IFR, SVFR and VFR practice approaches (except standard missed approaches). ----
+- { airport: LIT, flow: northeast, aircraft: any, side: west, group: Radar West, heading: "320 or 020", src: klit-atcttracon-sop#4-1-5 }
+- { airport: LIT, flow: northeast, aircraft: any, side: east, group: Radar East, heading: "060 or 080", src: klit-atcttracon-sop#4-1-5 }
+- { airport: LIT, flow: southwest, aircraft: any, side: west, group: Radar West, heading: "260 or 240", src: klit-atcttracon-sop#4-1-5 }
+- { airport: LIT, flow: southwest, aircraft: any, side: east, group: Radar East, heading: "180 or 160", src: klit-atcttracon-sop#4-1-5 }

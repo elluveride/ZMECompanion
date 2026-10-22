@@ -1,0 +1,42 @@
+name: ZME files staleness watch
+
+on:
+  schedule:
+    - cron: '23 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: check
+        name: Compare the ZME Files page with data/docs.yaml
+        run: |
+          set +e
+          npx tsx scripts/staleness.ts > report.md
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+      - if: steps.check.outputs.code == '1'
+        run: exit 1
+      - if: steps.check.outputs.code == '2'
+        name: Open (or update) a tracking issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="ZME files updated — re-check transcribed data"
+          existing=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file report.md
+          else
+            gh issue create --title "$title" --body-file report.md
+          fi

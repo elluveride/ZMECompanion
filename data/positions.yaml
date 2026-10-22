@@ -1,0 +1,80 @@
+# Control positions. `facility` is a tower (airport id), a TRACON (M03, BNA_TRACON, …) or ZME.
+# `role` drives which position page shows it. `primary: true` = the combined / default position.
+
+# ---- Memphis ATCT (MEM ATCT SOP 2-1-1) ----
+- { id: MEM_DEL, facility: MEM, role: DEL, name: Clearance, radio: Memphis Clearance, callsign: MEM_DEL, symbol: 1T, freq: "125.200", primary: true, src: kmem-atct-sop#2-1-1 }
+- { id: KMEM_ATIS, facility: MEM, role: ATIS, name: ATIS, radio: Memphis ATIS, callsign: KMEM_ATIS, freq: "127.750", src: kmem-atct-sop#2-1-1 }
+- { id: MEM_2_GND, facility: MEM, role: GND, name: Ground 2, radio: Memphis Ground, callsign: MEM_2_GND, symbol: 2T, freq: "121.900", primary: true, src: [kmem-atct-sop#2-1-1, "reference-card#Frequencies"], note: "The Reference Card's GND frequency" }
+- { id: MEM_1_GND, facility: MEM, role: GND, name: Ground 1, radio: Memphis Ground, callsign: MEM_1_GND, symbol: 1T, freq: "121.650", src: kmem-atct-sop#2-1-1 }
+- { id: MEM_2_TWR, facility: MEM, role: TWR, name: Local 2, radio: Memphis Tower, callsign: MEM_2_TWR, symbol: 2T, freq: "119.700", primary: true, owns: "36R/18L and 36C/18C; ground service on taxiways between 36C/18C and 36R/18L south of B", src: [kmem-atct-sop#2-1-1, kmem-atct-sop#4-2-1] }
+- { id: MEM_1_TWR, facility: MEM, role: TWR, name: Local 1, radio: Memphis Tower, callsign: MEM_1_TWR, symbol: 1T, freq: "128.425", owns: "36L/18R; gets an LC3 release before each 36L departure when 9 is an arrival runway", src: [kmem-atct-sop#2-1-1, kmem-atct-sop#4-2-1] }
+- { id: MEM_3_TWR, facility: MEM, role: TWR, name: Local 3, radio: Memphis Tower, callsign: MEM_3_TWR, symbol: 3T, freq: "118.300", owns: "9/27; coordinates each 9/27 departure release with LC1/LC2", src: [kmem-atct-sop#2-1-1, kmem-atct-sop#4-2-1] }
+
+# ---- M03 TRACON (M03 SOP 2-2-1). Staff ARE first, then F_APP before any other final. ----
+- { id: MEM_E_APP, facility: M03, role: APP, name: Arrival East, radio: Memphis Approach, callsign: MEM_E_APP, symbol: 1E, freq: "125.800", primary: true, owns: "Combined TRACON. Issues OLV departure clearances when OLV tower is closed and ARN is unstaffed.", src: [m03-tracon-sop#2-2-1, m03-tracon-sop#2-2-2] }
+- { id: MEM_W_APP, facility: M03, role: APP, name: Arrival West, radio: Memphis Approach, callsign: MEM_W_APP, symbol: 1W, freq: "119.100", owns: "Issues AWM departure clearances when ARN is unstaffed.", src: [m03-tracon-sop#2-2-1, m03-tracon-sop#2-2-3] }
+- { id: MEM_F_APP, facility: M03, role: APP, name: Final West, radio: Memphis Approach, callsign: MEM_F_APP, symbol: 1F, freq: "126.700", primary: true, owns: "Primary combined final — open before any other final.", src: [m03-tracon-sop#2-2-1, m03-tracon-sop#2-2-4] }
+- { id: MEM_M_APP, facility: M03, role: APP, name: Final East, radio: Memphis Approach, callsign: MEM_M_APP, symbol: 1M, freq: "120.920", src: m03-tracon-sop#2-2-1 }
+- { id: MEM_N_APP, facility: M03, role: APP, name: Final 9/27, radio: Memphis Approach, callsign: MEM_N_APP, symbol: 1N, freq: "126.050", src: m03-tracon-sop#2-2-1 }
+- { id: MEM_V_DEP, facility: M03, role: DEP, name: Departure East, radio: Memphis Departure, callsign: MEM_V_DEP, symbol: 1V, freq: "124.150", side: east, owns: "Coordinate with LC when turbojet departures are stopped below 4,000.", src: [m03-tracon-sop#2-2-1, m03-tracon-sop#2-2-5] }
+- { id: MEM_A_DEP, facility: M03, role: DEP, name: Departure West, radio: Memphis Departure, callsign: MEM_A_DEP, symbol: 1A, freq: "124.650", side: west, owns: "Coordinate with LC when turbojet departures are stopped below 4,000.", src: [m03-tracon-sop#2-2-1, m03-tracon-sop#2-2-6] }
+
+# ---- Nashville ATCT (BNA SOP 2-1-1) ----
+- { id: BNA_DEL, facility: BNA, role: DEL, name: Clearance, radio: Nashville Clearance, callsign: BNA_DEL, symbol: 1I, freq: "126.050", primary: true, src: kbna-atcttracon-sop#2-1-1 }
+- { id: KBNA_ATIS, facility: BNA, role: ATIS, name: ATIS, radio: Nashville ATIS, callsign: KBNA_ATIS, freq: "135.100", src: kbna-atcttracon-sop#2-1-1 }
+- { id: BNA_GND, facility: BNA, role: GND, name: Ground, radio: Nashville Ground, callsign: BNA_GND, symbol: 1L, freq: "121.900", primary: true, owns: "All movement-area taxiways; all ramps are non-movement", src: [kbna-atcttracon-sop#2-1-1, kbna-atcttracon-sop#3-1-1] }
+- { id: BNA_1_TWR, facility: BNA, role: TWR, name: Local 1, radio: Nashville Tower, callsign: BNA_1_TWR, symbol: 1T, freq: "118.600", primary: true, src: [kbna-atcttracon-sop#2-1-1, "reference-card#Frequencies"] }
+- { id: BNA_2_TWR, facility: BNA, role: TWR, name: Local 2, radio: Nashville Tower, callsign: BNA_2_TWR, symbol: 1T, freq: "132.350", note: "Opened only at the direction of the CIC or EC", src: kbna-atcttracon-sop#2-1-1 }
+
+# ---- Nashville TRACON (BNA SOP 5-1-2) ----
+- { id: BNA_X_DEP, facility: BNA_TRACON, role: DEP, name: Departure Radar West, radio: Nashville Departure, callsign: BNA_X_DEP, symbol: 1X, freq: "119.350", primary: true, side: west, src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_Y_DEP, facility: BNA_TRACON, role: DEP, name: Departure Radar East, radio: Nashville Departure, callsign: BNA_Y_DEP, symbol: 1Y, freq: "118.400", side: east, src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_E_APP, facility: BNA_TRACON, role: APP, name: Arrival Radar East, radio: Nashville Approach, callsign: BNA_E_APP, symbol: 1E, freq: "127.175", src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_W_APP, facility: BNA_TRACON, role: APP, name: Arrival Radar West, radio: Nashville Approach, callsign: BNA_W_APP, symbol: 1W, freq: "120.600", src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_F_APP, facility: BNA_TRACON, role: APP, name: Final Radar East, radio: Nashville Approach, callsign: BNA_F_APP, symbol: 1F, freq: "124.750", src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_B_APP, facility: BNA_TRACON, role: APP, name: Final Radar West, radio: Nashville Approach, callsign: BNA_B_APP, symbol: 1B, freq: "133.000", src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_S_APP, facility: BNA_TRACON, role: APP, name: Satellite Radar East, radio: Nashville Approach, callsign: BNA_S_APP, symbol: 1S, freq: "128.750", src: kbna-atcttracon-sop#5-1-2 }
+- { id: BNA_G_APP, facility: BNA_TRACON, role: APP, name: Satellite Radar West, radio: Nashville Approach, callsign: BNA_G_APP, symbol: 1G, freq: "120.600", src: kbna-atcttracon-sop#5-1-2 }
+
+# ---- Little Rock (LIT SOP 2-1-1; ATIS frequency from the Reference Card) ----
+- { id: LIT_DEL, facility: LIT, role: DEL, name: Clearance, radio: Adams Clearance, callsign: LIT_DEL, symbol: 1T, freq: "118.950", primary: true, src: klit-atcttracon-sop#2-1-1 }
+- { id: KLIT_ATIS, facility: LIT, role: ATIS, name: ATIS, freq: "125.650", src: "reference-card#Frequencies" }
+- { id: LIT_GND, facility: LIT, role: GND, name: Ground, radio: Adams Ground, callsign: LIT_GND, symbol: 1T, freq: "121.900", primary: true, src: klit-atcttracon-sop#2-1-1 }
+- { id: LIT_TWR, facility: LIT, role: TWR, name: Local, radio: Adams Tower, callsign: LIT_TWR, symbol: 1T, freq: "118.700", primary: true, src: klit-atcttracon-sop#2-1-1 }
+- { id: LIT_W_APP, facility: LIT_TRACON, role: APP, name: Radar West, radio: Little Rock Approach, callsign: LIT_W_APP, symbol: 1W, freq: "119.500", primary: true, side: west, owns: "Combined departure frequency", src: [klit-atcttracon-sop#5-1-1, klit-atcttracon-sop#2-1-3] }
+- { id: LIT_E_APP, facility: LIT_TRACON, role: APP, name: Radar East, radio: Little Rock Approach, callsign: LIT_E_APP, symbol: 1E, freq: "135.400", side: east, src: klit-atcttracon-sop#5-1-1 }
+- { id: LIT_F_APP, facility: LIT_TRACON, role: APP, name: Arrival Radar, radio: Little Rock Approach, callsign: LIT_F_APP, symbol: 1F, freq: "135.350", src: klit-atcttracon-sop#5-1-1 }
+- { id: LIT_N_APP, facility: LIT_TRACON, role: APP, name: Radar North, radio: Little Rock Approach, callsign: LIT_N_APP, symbol: 1N, freq: "119.750", src: klit-atcttracon-sop#5-1-1 }
+- { id: LIT_H_APP, facility: LIT_TRACON, role: APP, name: Radar HUNT, radio: Little Rock Approach, callsign: LIT_H_APP, symbol: 1H, freq: "119.850", src: klit-atcttracon-sop#5-1-1 }
+
+# ---- Huntsville (HSV SOP 2-1-1, 3-1-1) ----
+- { id: HSV_DEL, facility: HSV, role: DEL, name: Clearance, radio: Huntsville Clearance, callsign: HSV_DEL, symbol: 1T, freq: "120.350", primary: true, src: khsv-atcttracon-sop#2-1-1 }
+- { id: KHSV_ATIS, facility: HSV, role: ATIS, name: ATIS, radio: Huntsville ATIS, callsign: KHSV_ATIS, freq: "121.250", src: khsv-atcttracon-sop#2-1-1 }
+- { id: HSV_GND, facility: HSV, role: GND, name: Ground, radio: Huntsville Ground, callsign: HSV_GND, symbol: 1T, freq: "121.900", primary: true, src: khsv-atcttracon-sop#2-1-1 }
+- { id: HSV_TWR, facility: HSV, role: TWR, name: Local, radio: Huntsville Tower, callsign: HSV_TWR, symbol: 1T, freq: "127.600", primary: true, src: khsv-atcttracon-sop#2-1-1 }
+- { id: HSV_E_APP, facility: HSV_TRACON, role: APP, name: East Radar, radio: Huntsville Approach, callsign: HSV_E_APP, symbol: 1E, freq: "125.600", primary: true, src: khsv-atcttracon-sop#3-1-1 }
+- { id: HSV_W_APP, facility: HSV_TRACON, role: APP, name: West Radar, radio: Huntsville Approach, callsign: HSV_W_APP, symbol: 1W, freq: "118.050", src: khsv-atcttracon-sop#3-1-1 }
+- { id: HSV_F_APP, facility: HSV_TRACON, role: APP, name: Final Radar, radio: Huntsville Approach, callsign: HSV_F_APP, symbol: 1F, freq: "118.750", src: khsv-atcttracon-sop#3-1-1 }
+
+# ---- Jackson (Minor Field Reference KJAN Table 1; ATIS from the Reference Card) ----
+- { id: KJAN_ATIS, facility: JAN, role: ATIS, name: ATIS, freq: "121.050", src: "reference-card#Frequencies" }
+- { id: JAN_GND, facility: JAN, role: GND, name: Ground, radio: Jackson Ground, callsign: JAN_GND, freq: "121.700", primary: true, note: "No DEL position — Ground issues IFR clearances", src: minor-field-reference#KJAN Table 1 }
+- { id: JAN_TWR, facility: JAN, role: TWR, name: Local, radio: Jackson Tower, callsign: JAN_TWR, freq: "120.900", primary: true, src: minor-field-reference#KJAN Table 1 }
+- { id: JAN_E_APP, facility: JAN_TRACON, role: APP, name: East Radar, radio: Jackson Approach, callsign: JAN_E_APP, freq: "123.900", primary: true, src: minor-field-reference#KJAN Table 1 }
+- { id: JAN_W_APP, facility: JAN_TRACON, role: APP, name: West Radar, radio: Jackson Approach, callsign: JAN_W_APP, freq: "125.250", src: minor-field-reference#KJAN Table 1 }
+- { id: JAN_F_APP, facility: JAN_TRACON, role: APP, name: Final Radar, radio: Jackson Approach, callsign: JAN_F_APP, freq: "119.050", src: minor-field-reference#KJAN Table 1 }
+
+# ---- Minor fields (Minor Field Reference Table 1). GND issues IFR clearances (no DEL). ----
+- { id: KOLV_ATIS, facility: OLV, role: ATIS, name: ATIS, radio: Olive Branch ATIS, callsign: KOLV_ATIS, freq: "119.925", src: minor-field-reference#KOLV Table 1 }
+- { id: OLV_GND, facility: OLV, role: GND, name: Ground, radio: Olive Branch Ground, callsign: OLV_GND, freq: "121.200", primary: true, src: minor-field-reference#KOLV Table 1 }
+- { id: OLV_TWR, facility: OLV, role: TWR, name: Local, radio: Olive Branch Tower, callsign: OLV_TWR, freq: "125.720", primary: true, src: minor-field-reference#KOLV Table 1 }
+- { id: NQA_GND, facility: NQA, role: GND, name: Ground, radio: Millington Ground, callsign: NQA_GND, freq: "121.370", primary: true, src: minor-field-reference#KNQA Table 1 }
+- { id: NQA_TWR, facility: NQA, role: TWR, name: Local, radio: Millington Tower, callsign: NQA_TWR, freq: "120.250", primary: true, src: minor-field-reference#KNQA Table 1 }
+- { id: PAH_GND, facility: PAH, role: GND, name: Ground, radio: Paducah Ground, callsign: PAH_GND, freq: "121.700", primary: true, src: minor-field-reference#KPAH Table 1 }
+- { id: PAH_TWR, facility: PAH, role: TWR, name: Local, radio: Paducah Tower, callsign: PAH_TWR, freq: "119.600", primary: true, src: minor-field-reference#KPAH Table 1 }
+- { id: XNA_GND, facility: XNA, role: GND, name: Ground, radio: National Ground, callsign: XNA_GND, freq: "121.900", primary: true, src: minor-field-reference#KXNA Table 1 }
+- { id: XNA_TWR, facility: XNA, role: TWR, name: Local, radio: National Tower, callsign: XNA_TWR, freq: "127.100", primary: true, src: minor-field-reference#KXNA Table 1 }
+- { id: RZC_APP, facility: RZC, role: APP, name: Razorback Approach, radio: Razorback Approach, freq: "126.600", primary: true, src: minor-field-reference#KXNA Table 3 }
+
+# ---- ZME enroute combined (Enroute SOP 3-2-1). Other sectors live in sectors.yaml. ----
+- { id: MEM_22_CTR, facility: ZME, role: CTR, name: Razorback 22 (combined), radio: Memphis Center, callsign: MEM_22_CTR, freq: "132.550", primary: true, src: zme-enroute-sop#3-2-1 }

@@ -1,0 +1,105 @@
+# ZME Enroute SOP v1.3, chapter 3 section 2.
+sectors:
+  # 3-2-2 LO sectors (14)
+  - { id: "05", name: Paducah, callsign: MEM_05_CTR, freq: "133.650", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "01", name: Hot Springs, callsign: MEM_01_CTR, freq: "128.475", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "02", name: Fayetteville, callsign: MEM_02_CTR, freq: "126.100", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "03", name: Harrison, callsign: MEM_03_CTR, freq: "126.850", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "04", name: Jonesboro, callsign: MEM_04_CTR, freq: "120.075", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "12", name: Columbus, callsign: MEM_12_CTR, freq: "128.500", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "13", name: Hamilton, callsign: MEM_13_CTR, freq: "120.800", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "15", name: Helena, callsign: MEM_15_CTR, freq: "135.300", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "40", name: Sparta, callsign: MEM_40_CTR, freq: "132.900", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "41", name: Bowling Green, callsign: MEM_41_CTR, freq: "133.850", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "60", name: Shelbyville, callsign: MEM_60_CTR, freq: "128.150", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "65", name: Kewanee, callsign: MEM_65_CTR, freq: "125.975", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "66", name: Jackson, callsign: MEM_66_CTR, freq: "132.500", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  - { id: "67", name: Greenville, callsign: MEM_67_CTR, freq: "135.875", stratum: lo, src: zme-enroute-sop#3-2-2 }
+  # 3-2-4 HI sectors (13) and UH sectors (8)
+  - { id: "21", name: Conway, callsign: MEM_21_CTR, freq: "132.425", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "22", name: Razorback, callsign: MEM_22_CTR, freq: "132.550", stratum: hi, note: Primary combined high (and ZME combined) frequency, src: [zme-enroute-sop#3-2-4, zme-enroute-sop#3-2-1] }
+  - { id: "25", name: Tings, callsign: MEM_25_CTR, freq: "135.500", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "26", name: Jacks Creek, callsign: MEM_26_CTR, freq: "126.450", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "27", name: Calico, callsign: MEM_27_CTR, freq: "132.375", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "28", name: Memphis, callsign: MEM_28_CTR, freq: "118.625", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "30", name: Columbus, callsign: MEM_30_CTR, freq: "134.775", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "31", name: Muscle Shoals, callsign: MEM_31_CTR, freq: "127.375", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "44", name: Pine Bluff, callsign: MEM_44_CTR, freq: "124.925", stratum: hi, flags: { D1: [freq] }, src: zme-enroute-sop#3-2-4 }
+  - { id: "45", name: Vicksburg, callsign: MEM_45_CTR, freq: "133.075", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "46", name: Meridian, callsign: MEM_46_CTR, freq: "128.275", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "62", name: Smyrna, callsign: MEM_62_CTR, freq: "118.875", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "63", name: Campbell, callsign: MEM_63_CTR, freq: "124.275", stratum: hi, src: zme-enroute-sop#3-2-4 }
+  - { id: "19", name: Drake UH, callsign: MEM_19_CTR, freq: "133.025", stratum: uh, src: zme-enroute-sop#3-2-4 }
+  - { id: "20", name: Little Rock UH, callsign: MEM_20_CTR, freq: "125.475", stratum: uh, src: zme-enroute-sop#3-2-4 }
+  - { id: "32", name: Tupelo UH, callsign: MEM_32_CTR, freq: "135.650", stratum: uh, src: zme-enroute-sop#3-2-4 }
+  - { id: "33", name: Elvis UH, callsign: MEM_33_CTR, freq: "127.975", stratum: uh, note: Primary combined ultra-high frequency, src: zme-enroute-sop#3-2-4 }
+  - { id: "34", name: Sikeston UH, callsign: MEM_34_CTR, freq: "133.125", stratum: uh, src: zme-enroute-sop#3-2-4 }
+  - { id: "35", name: Walnut Ridge UH, callsign: MEM_35_CTR, freq: "135.225", stratum: uh, src: zme-enroute-sop#3-2-4 }
+  - { id: "43", name: Greenwood UH, callsign: MEM_43_CTR, freq: "127.425", stratum: uh, src: zme-enroute-sop#3-2-4 }
+  - { id: "61", name: Clarksville UH, callsign: MEM_61_CTR, freq: "124.125", stratum: uh, src: zme-enroute-sop#3-2-4 }
+
+# Splits. stratum `area` = combined area splits (preferred; 3-2-1). LO/HI/UH need senior staff,
+# the EC, an event CIC, or their designee (3-2-1d). `freq` overrides the sector list frequency
+# where a split table prints a different one.
+splits:
+  - { stratum: area, ways: 1, label: Combined, positions: [{ sector: "22" }], src: zme-enroute-sop#3-2-1 }
+  - { stratum: area, ways: 2, label: 2-way, positions: [{ sector: "22" }, { sector: "63" }], src: zme-enroute-sop#3-2-1 }
+  - { stratum: area, ways: 3, label: 3-way, positions: [{ sector: "22" }, { sector: "63" }, { sector: "46" }], src: zme-enroute-sop#3-2-1 }
+  - { stratum: area, ways: 4, label: 4-way, positions: [{ sector: "22" }, { sector: "63" }, { sector: "46" }, { sector: "44", freq: "134.925", flag: D1 }], src: zme-enroute-sop#3-2-1 }
+  - { stratum: lo, ways: 2, label: LO 2-way (E/W), positions: [{ sector: "05", areas: [1, 5, 6] }, { sector: "15", areas: [2, 3, 4] }], src: zme-enroute-sop#3-2-3 }
+  - { stratum: lo, ways: 3, label: LO 3-way (NE/NW/S), positions: [{ sector: "05", areas: [1, 5, 6] }, { sector: "15", areas: [4] }, { sector: "01", areas: [2, 3] }], src: zme-enroute-sop#3-2-3 }
+  - { stratum: lo, ways: 4, label: LO 4-way (NE/NW/SE/SW), positions: [{ sector: "05", areas: [1, 5] }, { sector: "15", areas: [4] }, { sector: "13", areas: [6] }, { sector: "01", areas: [2, 3] }], src: zme-enroute-sop#3-2-3 }
+  - { stratum: hi, ways: 2, label: HI 2-way (E/W), positions: [{ sector: "22", areas: [2, 3, 4] }, { sector: "63", areas: [1, 5, 6] }], src: zme-enroute-sop#3-2-5 }
+  - { stratum: hi, ways: 3, label: HI 3-way (NE/NW/S), positions: [{ sector: "22", areas: [2, 3] }, { sector: "63", areas: [1, 5] }, { sector: "45", areas: [4, 6] }], src: zme-enroute-sop#3-2-5 }
+  - { stratum: hi, ways: 4, label: HI 4-way (NE/NW/S/E), positions: [{ sector: "22", areas: [2, 3] }, { sector: "63", areas: [1, 5] }, { sector: "45", areas: [4] }, { sector: "31", areas: [6] }], src: zme-enroute-sop#3-2-5 }
+  - { stratum: uh, ways: 2, label: UH 2-way (E/W), positions: [{ sector: "33", areas: [1, 5, 6] }, { sector: "20", areas: [2, 3, 4] }], src: zme-enroute-sop#3-2-5 }
+  - { stratum: uh, ways: 3, label: UH 3-way (NE/NW/S), positions: [{ sector: "33", areas: [1, 5] }, { sector: "20", areas: [2, 3] }, { sector: "32", areas: [4, 6] }], src: zme-enroute-sop#3-2-5 }
+  - { stratum: uh, ways: 4, label: UH 4-way (NE/NW/S/E), positions: [{ sector: "33", areas: [1] }, { sector: "20", areas: [2, 3] }, { sector: "61", areas: [5] }, { sector: "32", areas: [4, 6] }], src: zme-enroute-sop#3-2-5 }
+
+# Neighbouring ARTCC frequencies (Reference Card "ENROUTE" line).
+neighbours:
+  - { id: ZTL, name: Atlanta Center, freq: "132.975", loa: ztl-loa, src: "reference-card#Frequencies" }
+  - { id: ZHU, name: Houston Center, freq: "134.425", loa: zhu-loa, src: "reference-card#Frequencies" }
+  - { id: ZID, name: Indianapolis Center, freq: "128.225", loa: zid-loa, src: "reference-card#Frequencies" }
+  - { id: ZKC, name: Kansas City Center, freq: "125.720", loa: zkc-loa, src: "reference-card#Frequencies" }
+  - { id: ZFW, name: Fort Worth Center, freq: "135.175", loa: zfw-loa, src: "reference-card#Frequencies" }
+
+# External LOA summary (Reference Card "External Letters of Agreement"). The LOA wins when they differ.
+loa_rules:
+  - { neighbour: ZTL, destination: ATL, restriction: "From south of J52: GNDLF STAR (east ops), HOBTT STAR (west ops) or LGC STAR", src: "reference-card#External LOAs" }
+  - { neighbour: ZTL, destination: ATL, restriction: "From over MEM: GLAVN STAR AOB FL330", src: "reference-card#External LOAs" }
+  - { neighbour: ZTL, destination: ATL, restriction: "From over BNA: CHPPR STAR AOB FL330", src: "reference-card#External LOAs" }
+  - { neighbour: ZTL, destination: ATL satellites, restriction: "From north of J52: BUKHD STAR; from south of J52: BOKRT STAR, AOB FL350", src: "reference-card#External LOAs" }
+  - { neighbour: ZTL, destination: TYS, restriction: "At FL210", src: "reference-card#External LOAs" }
+  - { neighbour: ZTL, destination: CHA, restriction: "Route via GQO; GQO 30 DME fix at 11,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZTL, destination: BHM, restriction: "Route via the arrival fix — see LOA for altitudes", src: "reference-card#External LOAs" }
+  - { neighbour: ZHU, destination: MOB, restriction: "Cross boundary AOB FL230 descending to 11,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZHU, destination: "NEW, MSY", restriction: "Via TRSSH STAR; cross boundary AOB FL290", src: "reference-card#External LOAs" }
+  - { neighbour: ZHU, destination: "GPT, BTR", restriction: "Cross boundary AOB FL290", src: "reference-card#External LOAs" }
+  - { neighbour: ZHU, destination: "AEX, ESF", restriction: "Cross boundary AOB FL230 descending to 13,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZHU, destination: PNS area, restriction: "Cross boundary AOB FL270", src: "reference-card#External LOAs" }
+  - { neighbour: ZID, destination: CVG, restriction: "Via TERGE.SARGO# ≤ FL310, or TERGE..HEREE..SARGO ≤ FL310", src: "reference-card#External LOAs" }
+  - { neighbour: ZID, destination: EVV, restriction: "≤ FL230, descending to 14,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZID, destination: IND, restriction: "Via TERGE.SMUKE# ≤ FL330, or HAGAL.GIIBS# ≤ FL330", src: "reference-card#External LOAs" }
+  - { neighbour: ZID, destination: LEX, restriction: "Via UNCKL ≤ FL270, descending to FL240", src: "reference-card#External LOAs" }
+  - { neighbour: ZID, destination: SDF, restriction: "Via MBELL# ≤ FL290", src: "reference-card#External LOAs" }
+  - { neighbour: ZKC, destination: STL, restriction: "East of J180: BOOSH STAR AOB FL280", src: "reference-card#External LOAs" }
+  - { neighbour: ZKC, destination: STL, restriction: "West of J180: SGF.KAYLA STAR", src: "reference-card#External LOAs" }
+  - { neighbour: ZKC, destination: MCI, restriction: "KRTNY/NELVY.MHOMS STAR", src: "reference-card#External LOAs" }
+  - { neighbour: ZKC, destination: MKC, restriction: "SGF/KRAZO.TYGER STAR", src: "reference-card#External LOAs" }
+  - { neighbour: ZKC, destination: TUL, restriction: "TUL 30 DME fix at 11,000, or 6,000 via ATA", src: "reference-card#External LOAs" }
+  - { neighbour: ZKC, destination: BBG, restriction: "Direct CADAN at 6,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZFW, destination: DFW, restriction: "Via LIT/RZC: BRDJE (N) or SEEVR (S) STAR. Via MLU: WHINY (N) or BEREE (S) STAR", src: "reference-card#External LOAs" }
+  - { neighbour: ZFW, destination: DAL, restriction: "Via LIT/RZC: CRIKT (N) or HIBIL (S) STAR. Via MLU: MNNDO (N) or REDDN (S) STAR", src: "reference-card#External LOAs" }
+  - { neighbour: ZFW, destination: MLU, restriction: "Cross MLU 31 DME fix AOB 13,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZFW, destination: TXK, restriction: "Cross boundary at 6,000", src: "reference-card#External LOAs" }
+  - { neighbour: ZFW, destination: "SHV, DTN", restriction: "Cross boundary at FL280", src: "reference-card#External LOAs" }
+
+# Internal arrival crossing restrictions (Reference Card notes).
+arrival_restrictions:
+  - { destination: MEM, aircraft: Jets, restriction: "Descend via BLUZZ / BRBBQ / HOBRK / VANZE; indicate landing direction", src: "reference-card#Arrivals (KMEM only)" }
+  - { destination: MEM, aircraft: Turboprops, restriction: "Direct the RNAV arrival fix (BRBBQ, BLUZZ, VANZE or HOBRK), direct MEM, cross the TCP at 8,000", src: "reference-card#Arrivals (KMEM only)" }
+  - { destination: BNA, aircraft: Jets, restriction: "Descend via CHSNE / PASLY / RYYMN / SWFFT; indicate landing runway", src: "reference-card#Arrivals (BNA)" }
+  - { destination: BNA, aircraft: Conventional (non-RNAV), restriction: "Direct arrival fix, direct BNA, cross the TCP at 11,000", src: "reference-card#Arrivals (BNA)" }
+  - { destination: BNA, aircraft: Turboprops, restriction: "Direct KBNA; cross the TCP at 7,000 from ZME-42/GHM LO, 8,000 from all other sectors", src: "reference-card#Arrivals (BNA)" }
+  - { destination: BNA, aircraft: Pistons, restriction: "Direct destination; cross the TCP at 5,000 from ZME-42/GHM LO, 6,000 from all other sectors", src: "reference-card#Arrivals (BNA)" }

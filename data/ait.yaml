@@ -1,0 +1,175 @@
+# Automated Information Transfer procedures (ZME Enroute SOP v1.3 chapter 4).
+# Procedures repeated under several areas are merged; `areas` lists every area they appear in
+# and `src` cites each paragraph. Wording condensed from the SOP; altitudes/sectors verbatim.
+- id: ryymn-bna-area
+  title: RYYMN arrivals — Nashville area (BNA/MBT/JWN/MQY) AOA FL240
+  areas: [1, 5]
+  sectors: ["25", "63", "41"]
+  steps:
+    - Clear the aircraft on the appropriate STAR.
+    - Sector 25 assigns FL240 and initiates a handoff to Sector 63. Pilot's discretion descent not authorized.
+    - Sector 63 accepts and initiates a handoff to Sector 41. If 63 doesn't hand off to 41, transfer communications to 63; otherwise transfer to 41 on acceptance.
+    - If FL240 is not available, Sector 25 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 63.
+  src: [zme-enroute-sop#4-1-1(a), zme-enroute-sop#4-1-5(c)]
+- id: cvg-area-arrivals
+  title: Cincinnati area (CVG/LUK) arrivals
+  areas: [1, 5]
+  sectors: ["25", "26", "63"]
+  steps:
+    - Clear to cross the Sector 63 boundary AOB FL330.
+    - Obtain prior approval when this is not possible.
+  src: [zme-enroute-sop#4-1-1(b), zme-enroute-sop#4-1-5(e)]
+- id: sdf-area-arrivals
+  title: Louisville area (SDF/LOU/FTK/JVY) turbojet arrivals
+  areas: [1, 5]
+  sectors: ["25", "26", "62", "63"]
+  steps:
+    - Clear to cross the Sector 62 or Sector 63 boundary AOB FL310.
+    - Obtain prior approval when this is not possible.
+  src: [zme-enroute-sop#4-1-1(c), zme-enroute-sop#4-1-5(f)]
+- id: cvg-sdf-terminal-35-33
+  title: CVG & Louisville terminal arrivals entering 33 from 35
+  areas: [1, 2]
+  sectors: ["35", "33", "25"]
+  steps:
+    - Sector 35 clears the aircraft to FL350 and initiates a handoff to Sector 33. Pilot's discretion descent not authorized.
+    - Sector 33 accepts and initiates a handoff to Sector 25. If 33 doesn't hand off to 25, transfer communications to 33; otherwise transfer to 25 on acceptance.
+    - If FL350 is not available, Sector 35 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 33.
+  src: [zme-enroute-sop#4-1-1(d), zme-enroute-sop#4-1-2(d)]
+- id: bna-terminal-35-33
+  title: BNA terminal area arrivals entering 33 from 35
+  areas: [1, 2]
+  sectors: ["35", "33", "26"]
+  steps:
+    - Sector 35 clears the aircraft to FL350 (4-1-2e) / FL250 (4-1-1e) and initiates a handoff to Sector 33. Pilot's discretion descent not authorized.
+    - Sector 33 accepts and initiates a handoff to Sector 26. If 33 doesn't hand off to 26, transfer communications to 33.
+    - If FL350 is not available, Sector 35 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 33.
+  flag: D5
+  src: [zme-enroute-sop#4-1-1(e), zme-enroute-sop#4-1-2(e)]
+- id: lex-arrivals
+  title: LEX arrivals AOA FL240
+  areas: [1, 5]
+  sectors: ["33", "61", "62", "63"]
+  steps:
+    - Sector 33 descends the aircraft to FL350 and initiates a handoff to Sector 61.
+    - Sector 61 accepts and initiates a handoff to Sector 62/63. If 61 doesn't hand off, transfer communications to 61; otherwise transfer to 62/63 on acceptance.
+    - If FL350 is not available, Sector 33 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 61.
+  src: [zme-enroute-sop#4-1-1(f), zme-enroute-sop#4-1-5(g)]
+- id: bluzz-wlder-61-33-26
+  title: BLUZZ/WLDER arrivals from J29 clockwise to Q34 / J42
+  areas: [1, 5]
+  sectors: ["61", "33", "26"]
+  steps:
+    - Sector 61 assigns FL350 and initiates a handoff to Sector 33. Pilot's discretion descent not authorized.
+    - Sector 33 accepts and initiates a handoff to Sector 26. If 33 doesn't hand off to 26, transfer communications to 33 (4-1-1g); 4-1-5d says Sector 61 transfers communications to Sector 26.
+    - If FL350 is not available, Sector 61 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 33.
+  flag: D10
+  src: [zme-enroute-sop#4-1-1(g), zme-enroute-sop#4-1-5(d)]
+- id: fyv-terminal-3-2
+  title: Fayetteville terminal arrivals from Sector 3 AOA 16,000 next entering Sector 2
+  areas: [2, 3]
+  sectors: ["03", "02"]
+  steps:
+    - Sector 3 enters an assigned or interim altitude of 16,000 and initiates a handoff to Sector 2.
+    - Sector 2 initiates a handoff to Razorback Approach or verbally coordinates with Sector 3.
+    - Sector 3 transfers communications to Razorback Approach.
+    - If 16,000 is not available, Sector 3 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 2.
+  src: [zme-enroute-sop#4-1-2(a), zme-enroute-sop#4-1-3(a)]
+- id: brbbq-dawgg-19-35-27
+  title: BRBBQ/DAWGG arrivals into MEM entering 35 from 19
+  areas: [2]
+  sectors: ["19", "35", "27"]
+  steps:
+    - Sector 19 clears the aircraft to FL350 (pilot's discretion not authorized) and initiates a handoff to Sector 35.
+    - Sector 35 accepts and initiates a handoff to Sector 27. If 35 doesn't hand off to 27, transfer communications to 35; otherwise transfer to 27 on acceptance.
+    - If FL350 is not available, Sector 19 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 35.
+  src: [zme-enroute-sop#4-1-2(b)]
+- id: lit-arrivals-21
+  title: Little Rock area arrivals AOA FL240 entering Sector 21
+  areas: [2, 3]
+  sectors: ["27", "22", "21", "03", "01", "15"]
+  steps:
+    - Sector 22/27 assigns FL240 and initiates a handoff to Sector 21. Pilot's discretion descent authorized.
+    - Sector 21 accepts and initiates a handoff to Sector 1/3/15 or verbally coordinates with Sector 22/27.
+    - Sector 22/27 transfers communications to Sector 1/3/15.
+    - If FL240 is not available, Sector 22/27 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 21.
+  src: [zme-enroute-sop#4-1-2(c), zme-enroute-sop#4-1-3(b)]
+- id: fyv-arrivals-over-mem
+  title: Fayetteville area arrivals from over MEM AOA FL240
+  areas: [2, 3]
+  sectors: ["21", "27", "03"]
+  steps:
+    - Sector 21 enters an assigned or interim altitude of FL240 and initiates a handoff to Sector 27. Pilot's discretion authorized.
+    - Sector 27 accepts and initiates a handoff to Sector 3 or verbally coordinates with Sector 21.
+    - Sector 21 transfers communications to Sector 3.
+    - If FL240 is not available, Sector 21 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 27.
+  src: [zme-enroute-sop#4-1-2(f), zme-enroute-sop#4-1-3(c)]
+- id: lit-departures-north
+  title: Little Rock area departures to the north entering Sector 21
+  areas: [2, 3]
+  sectors: ["03", "21", "27"]
+  steps:
+    - Sector 3 assigns FL230 and initiates a handoff to Sector 21.
+    - Sector 21 enters an altitude AOB FL340 (right for direction of flight) and initiates a handoff to Sector 27.
+    - Sector 27 accepts the handoff or verbally coordinates with Sector 3.
+    - Sector 3 climbs the aircraft to the altitude Sector 21 entered and transfers communications to Sector 27 after the handoff.
+  src: [zme-enroute-sop#4-1-2(g), zme-enroute-sop#4-1-3(e)]
+- id: mem-inbounds-aoa-fl350
+  title: MEM inbounds AOA FL350 (19 → 20 → 21)
+  areas: [2, 3]
+  sectors: ["19", "20", "21"]
+  steps:
+    - Sector 19 enters an assigned or interim altitude of FL250 (4-1-2h) / FL350 (4-1-3d) and initiates a handoff to Sector 20. Pilot's discretion not authorized.
+    - Sector 20 accepts and initiates a handoff to Sector 21 or verbally coordinates.
+    - Sector 19 transfers communications to Sector 21.
+    - If FL350 is not available, Sector 19 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 20.
+  flag: D6
+  src: [zme-enroute-sop#4-1-2(h), zme-enroute-sop#4-1-3(d)]
+- id: lit-arrivals-30-44-15
+  title: Little Rock area arrivals AOA FL240 (30 → 44 → 15)
+  areas: [3, 4, 6]
+  sectors: ["30", "44", "15"]
+  steps:
+    - Sector 30 assigns FL240 and initiates a handoff to Sector 44. Pilot's discretion not authorized.
+    - Sector 44 accepts and initiates a handoff to Sector 15 or verbally coordinates with Sector 30.
+    - Sector 30 transfers communications to Sector 15.
+    - If FL240 is not available, Sector 30 assigns the lowest available altitude and, after the handoff, transfers communications to Sector 44.
+  src: [zme-enroute-sop#4-1-3(f), zme-enroute-sop#4-1-4(b), zme-enroute-sop#4-1-6(b)]
+- id: mem-to-ztl-t02-t03
+  title: AOA FL240 departing or overflying MEM, next entering ZTL T03 (Gadsden Hi) or T02 (Gunter UH)
+  areas: [4, 6]
+  sectors: ["30", "32", "46", "43"]
+  steps:
+    - Sector 30/32 enters an assigned or interim altitude in the data block and initiates a handoff to Sector 46/43.
+    - Sector 46/43 accepts and initiates a handoff to ZTL T02/T03 or verbally coordinates with Sector 30/32.
+    - Sector 30/32 coordinates interim altitudes and completes a point out to Sector 46 and ZTL T03 if necessary.
+    - Sector 30/32 transfers communications to the receiving sector.
+  src: [zme-enroute-sop#4-1-4(a), zme-enroute-sop#4-1-6(a)]
+- id: bna-departures-east
+  title: BNA eastbound and northeast-bound departures requesting AOA FL240
+  areas: [5]
+  sectors: ["40", "62"]
+  steps:
+    - Sector 40 clears the aircraft to FL230 and initiates a handoff to Sector 62.
+    - Sector 62 accepts, enters an assigned or interim altitude (AOB FL310 for aircraft next entering ZTL T37), and initiates a handoff to ZID I84 (REBEL Hi) or ZTL T37 (Crossville Hi), or verbally coordinates with Sector 40.
+    - Sector 40 clears the aircraft to the data-block altitude and transfers communications to the receiving controller.
+  src: [zme-enroute-sop#4-1-5(a)]
+- id: bna-departures-iiu-j39
+  title: BNA departures filed over IIU or J39 northbound requesting AOA FL240
+  areas: [5]
+  sectors: ["41", "63"]
+  steps:
+    - Sector 41 clears the aircraft to FL230 and initiates a handoff to Sector 63.
+    - Sector 63 accepts, enters an assigned or interim altitude, and initiates a handoff to ZID I82 (Louisville Hi) or verbally coordinates with Sector 41.
+    - Sector 41 clears the aircraft to the data-block altitude and transfers communications to the receiving sector.
+  src: [zme-enroute-sop#4-1-5(b)]
+- id: bna-flame-tippn-60-62
+  title: BNA turbojet departures on the FLAME or TIPPN SID entering Sector 62
+  areas: [5]
+  sectors: ["60", "62"]
+  steps:
+    - Sector 60 initiates a handoff to Sector 62; Sector 62 enters an altitude AOB FL290.
+    - Sector 62 initiates a handoff to ZTL Sector 6 (Rocket Hi).
+    - After the handoff, Sector 60 climbs the aircraft to the coordinated altitude and transfers communications to ZTL Sector 6.
+    - Aircraft must remain on the SID.
+  src: [zme-enroute-sop#4-1-5(h)]

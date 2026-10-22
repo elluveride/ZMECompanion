@@ -1,0 +1,91 @@
+# Small reference tables printed on the Reference Card and VOR sheet.
+initial_headings_from_mem:
+  src: "reference-card#Initial heading from MEM"
+  header: "SW EVEN | NE ODD"
+  rows:
+    - { dest: STL, heading: 355 }
+    - { dest: CLT, heading: 86 }
+    - { dest: DFW, heading: 250 }
+    - { dest: IND, heading: 30 }
+    - { dest: MSY, heading: 184 }
+    - { dest: CMI, heading: 16 }
+    - { dest: SGF, heading: 309 }
+    - { dest: JAX, heading: 120 }
+    - { dest: MCI, heading: 319 }
+    - { dest: ORD, heading: 14 }
+    - { dest: MSP, heading: 345 }
+    - { dest: ATL, heading: 105 }
+    - { dest: JAN, heading: 183 }
+    - { dest: MOB, heading: 161 }
+
+initial_altitude_guidance:
+  src: "reference-card#Initial altitude guidance"
+  rows:
+    - { airport: MEM, value: "5,000 jet · 3,000 prop" }
+    - { airport: BNA, value: "4,000" }
+    - { airport: LIT, value: "4,000" }
+    - { airport: JAN, value: "4,000", flag: D3 }
+    - { airport: XNA, value: "5,000" }
+    - { airport: HSV, value: "5,000" }
+    - { airport: FSM, value: "5,000" }
+    - { airport: MEM satellites, value: "2,000" }
+    - { airport: BNA satellites, value: "3,000" }
+
+other_sids:
+  src: "reference-card#Other airports SIDs"
+  rows:
+    - { airport: ASG, sid: SPRING FIVE, text: "RWY36 H003. RWY18 TL120 ↑4,000" }
+    - { airport: FYV, sid: RAZORBACK THREE, text: "RWY16 TR180. RWY34 H347 ↑5,000" }
+    - { airport: ROG, sid: ROGERS FOUR, text: "RWY2 H018. RWY20 TL183 ↑3,000" }
+    - { airport: VBT, sid: BENTON SIX, text: "H179/359 ↑3,000" }
+    - { airport: XNA, sid: HIGHFILL NINE, text: "RWY16 H180. RWY34 H339. RV ↑5,000" }
+
+# VOR Reference Sheet (as extracted; see the PDF for the full sheet).
+vors:
+  src: vor-reference-sheet
+  rows:
+    - { id: ARG, name: Walnut Ridge }
+    - { id: BNA, name: Nashville }
+    - { id: BWG, name: Bowling Green }
+    - { id: CBM, name: Caledonia }
+    - { id: CGI, name: Cape Girardeau }
+    - { id: CKV, name: Clarksville }
+    - { id: CNG, name: Cunningham }
+    - { id: DAK, name: Drake }
+    - { id: DCU, name: Decatur }
+    - { id: DYR, name: Dyersburg }
+    - { id: EWA, name: Kewanee }
+    - { id: FLP, name: Flippin }
+    - { id: FSM, name: Fort Smith }
+    - { id: GHM, name: Graham }
+    - { id: GLH, name: Greenville }
+    - { id: GOJ, name: Gosnell }
+    - { id: GQE, name: Gilmore }
+    - { id: HAB, name: Hamilton }
+    - { id: HLI, name: Holly Springs }
+    - { id: HRO, name: Harrison }
+    - { id: HOT, name: Hot Springs }
+    - { id: HUW, name: Hutton }
+    - { id: HXW, name: Screaming Eagle }
+    - { id: IGB, name: Bigbee }
+    - { id: JBR, name: Jonesboro }
+    - { id: JKS, name: Jacks Creek }
+    - { id: LIT, name: Little Rock }
+    - { id: LRF, name: Jacksonville }
+    - { id: MAW, name: Malden }
+    - { id: MEI, name: Meridian }
+    - { id: MEM, name: Memphis }
+    - { id: MHZ, name: Magnolia }
+    - { id: MKL, name: McKellar }
+    - { id: MON, name: Monticello }
+    - { id: MSL, name: Muscle Shoals }
+    - { id: NMM, name: Meridian (TACAN) }
+    - { id: OTB, name: Tupelo }
+    - { id: PBF, name: Pine Bluff }
+    - { id: PGO, name: Rich Mountain }
+    - { id: RQZ, name: Rocket }
+    - { id: RZC, name: Razorback }
+    - { id: SQS, name: Sidon }
+    - { id: SYI, name: Shelbyville }
+    - { id: UJM, name: Marvell }
+    - { id: UXM, name: Tullahoma Regional }
