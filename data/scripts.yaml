@@ -1,0 +1,192 @@
+# Phraseology templates. {slots} auto-fill from the top bar and the active flight; any slot
+# without a value stays visible as {slot} so you can see what's missing.
+# Multi-line `template` = an exchange; lines starting "> " are the other party.
+
+# ---- DEL ----
+- id: del-craft
+  role: DEL
+  airports: [MEM, LIT]
+  name: Voice clearance (CRAFT)
+  template: "{callsign}, cleared to {dest} airport via the {sid} departure, {transition} transition, then as filed. Maintain {alt}, expect {filed} one-zero minutes after departure. Departure frequency {depfreq}, squawk {squawk}."
+  src: [kmem-atct-sop#2-1-2, zme-pre-departure-clearance-policy#4-1-1]
+- id: del-craft-bna
+  role: DEL
+  airports: [BNA]
+  name: Voice clearance (CRAFT) — BNA climb via
+  template: "{callsign}, cleared to {dest} airport via the {sid} departure, {transition} transition, then as filed. Climb via SID except maintain 4,000. Expect {filed} one-zero minutes after departure. Departure frequency {depfreq}, squawk {squawk}."
+  note: "Drop \"except maintain 4,000\" when the filed altitude is 15,000 or higher."
+  src: kbna-atcttracon-sop#2-1-2
+- id: del-elvis
+  role: DEL
+  airports: [MEM]
+  name: Prop / no-SID clearance (ELVIS)
+  template: "{callsign}, cleared to {dest} airport via the {sid} departure, {transition} transition, then as filed. Maintain {alt}, expect {filed} one-zero minutes after departure. Departure frequency {depfreq}, squawk {squawk}."
+  src: [m03-tracon-sop#5-1-1, kmem-atct-sop#2-1-2]
+- id: del-local-mem
+  role: DEL
+  airports: [MEM]
+  name: Local-area IFR — approach to MEM
+  template: "{callsign}, cleared to the Memphis VORTAC via radar vectors. Maintain 3,000. Fly runway heading. Departure frequency {depfreq}, squawk {squawk}."
+  src: kmem-atct-sop#Appendix 1(a)
+- id: del-local-sat
+  role: DEL
+  airports: [MEM]
+  name: Local-area IFR — approach to a satellite
+  template: "{callsign}, cleared to {dest} airport via radar vectors. Maintain 3,000. Fly runway heading. Departure frequency {depfreq}, squawk {squawk}."
+  src: kmem-atct-sop#Appendix 1(b)
+- id: del-minor
+  role: DEL
+  airports: [OLV, NQA, PAH, XNA, JAN]
+  name: Minor-field IFR clearance (by GND)
+  template: "{callsign}, cleared to {dest} airport as filed. Maintain {alt}, expect {filed} one-zero minutes after departure. Departure frequency {depfreq}, squawk {squawk}. {atis_or_altimeter}."
+  src: minor-field-reference
+- id: del-readback
+  role: DEL
+  name: Readback
+  template: "{callsign}, readback correct."
+- id: del-disregard-pdc
+  role: DEL
+  airports: [MEM, BNA, LIT]
+  name: Amendment after a PDC
+  template: "{callsign}, disregard PDC message. {amended_clearance}"
+  src: zme-pre-departure-clearance-policy#4-1-3
+
+# ---- GND ----
+- id: gnd-crossing
+  role: GND
+  name: Crossing request to Local
+  template: |-
+    Local, Ground. One to cross runway {xrwy} at {twy}.
+    > One to cross {xrwy} at {twy} approved.
+    Crossing complete.
+  note: "Local can also initiate: \"Cross runway {xrwy} at {twy}.\""
+  src: [kmem-atct-sop#3-1-1, kbna-atcttracon-sop#3-1-2]
+- id: gnd-taxi
+  role: GND
+  name: Taxi
+  template: "{callsign}, runway {rwy}, taxi via {route}."
+- id: gnd-taxi-hold
+  role: GND
+  name: Taxi with a crossing
+  template: "{callsign}, runway {rwy}, taxi via {route}, hold short of runway {xrwy}."
+  src: kmem-atct-sop#3-1-1
+- id: gnd-handoff
+  role: GND
+  name: To Tower
+  template: "{callsign}, monitor {twrradio} {twrfreq}."
+
+# ---- TWR ----
+- id: twr-rnav
+  role: TWR
+  name: RNAV takeoff
+  template: "{callsign}, RNAV to {fix}, runway {rwy}, cleared for takeoff."
+  src: ["reference-card#MEM Departures", kbna-atcttracon-sop#4-1-5]
+- id: twr-heading
+  role: TWR
+  name: Heading takeoff
+  template: "{callsign}, fly heading {hdg}, runway {rwy}, cleared for takeoff."
+  src: kmem-atct-sop#4-1-5
+- id: twr-go-around
+  role: TWR
+  airports: [MEM]
+  name: Go-around coordination
+  template: |-
+    {callsign}, go around, fly runway heading, climb and maintain 5,000.
+    Departure, Local, go around.
+    > Departure.
+    {callsign} going around, runway heading and 5,000.
+    > (Departure may halt departures until clear of the corridor.)
+    > Roger, {callsign} going around, departures released.
+  src: kmem-atct-sop#4-1-3
+- id: twr-go-around-bna
+  role: TWR
+  airports: [BNA]
+  name: Go-around coordination
+  template: |-
+    Departure, Local, go around.
+    > Local, Departure.
+    {callsign} going around, runway heading and 4,000.
+    > Roger, {callsign} going around, departures released.
+  src: kbna-atcttracon-sop#4-1-3
+- id: twr-vfr-bravo
+  role: TWR
+  airports: [OLV, NQA]
+  name: VFR departure under the Bravo
+  template: "{callsign}, {pattern_departure} approved, remain clear of Memphis Class B airspace, runway {rwy}, cleared for takeoff."
+  src: [minor-field-reference#KNQA 2.2, minor-field-reference#KOLV 2.2]
+- id: twr-handoff
+  role: TWR
+  name: To Departure
+  template: "{callsign}, contact {depradio} {depfreq}."
+
+# ---- APP/DEP ----
+- id: app-approach
+  role: APP
+  name: Approach clearance
+  template: "{callsign}, {position_report}, cleared {approach} approach runway {rwy}."
+- id: app-visual-airport
+  role: APP
+  name: Visual — airport in sight
+  template: |-
+    {callsign}, airport {clock} o'clock, {miles} miles. Report the airport in sight.
+    > Airport in sight.
+    {callsign}, cleared visual approach runway {rwy}.
+  note: "Scratchpad: runway (visual) + V/A in the secondary scratchpad."
+  src: m03-tracon-sop#6-1-2
+- id: app-visual-traffic
+  role: APP
+  name: Visual — follow traffic
+  template: |-
+    {callsign}, traffic {clock} o'clock, {miles} miles, {traffic_type}. Report traffic in sight.
+    > Traffic in sight.
+    {callsign}, follow that traffic, cleared visual approach runway {rwy}.
+  note: "Secondary scratchpad V/F."
+  src: m03-tracon-sop#6-1-2
+- id: app-release
+  role: APP
+  name: IFR release to a satellite tower
+  template: |-
+    > Request release, {callsign}, runway {rwy}.
+    {callsign} released. {release_restrictions}
+  note: "Releases are per aircraft unless blanket releases are granted; automatic releases still need a rolling call."
+  src: minor-field-reference
+- id: app-classb
+  role: APP
+  airports: [MEM]
+  name: VFR into the Class Bravo
+  template: "{callsign}, cleared into the Class Bravo airspace. {vfr_instructions}"
+  src: m03-tracon-sop#4-1-2
+- id: app-handoff-twr
+  role: APP
+  name: To Tower
+  template: "{callsign}, contact {twrradio} {twrfreq}."
+  src: m03-tracon-sop#4-1-1
+
+# ---- CTR ----
+- id: ctr-initial
+  role: CTR
+  name: Initial contact
+  template: "{callsign}, Memphis Center, roger. {altimeter}"
+- id: ctr-descend-via
+  role: CTR
+  name: Descend via
+  template: "{callsign}, descend via the {star} arrival. Landing {landing}."
+  note: "Reference Card: jets get \"descend via\" with the landing direction (MEM) or landing runway (BNA)."
+  src: ["reference-card#Arrivals (KMEM only)", "reference-card#Arrivals (BNA)"]
+- id: ctr-cross
+  role: CTR
+  name: Crossing restriction
+  template: "{callsign}, cross {fix} at {cross_alt}."
+- id: ctr-pointout
+  role: CTR
+  name: Point out
+  template: "Point out, {pointout_position}, {callsign} {location}, {alt}."
+- id: ctr-handoff
+  role: CTR
+  name: Handoff
+  template: "{callsign}, contact {next_facility} {next_freq}."
+- id: ctr-signoff
+  role: CTR
+  name: ATC-chat sign-off notice
+  template: "{my_callsign} closing at {time}Z. {coverage_note}"
+  src: zme-general-operating-procedures#4-1-2

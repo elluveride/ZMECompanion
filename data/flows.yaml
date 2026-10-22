@@ -1,0 +1,85 @@
+# Runway configurations per airport. The top-bar Flow control lists these for the selected airport.
+- airport: MEM
+  id: north
+  name: North
+  depart: [36L, 36C]
+  arrive: [36L, 36R]
+  optional: ["9", "27"]
+  notes: ["Calm-wind configuration. 9 or 27 optional."]
+  flag: D7
+  src: kmem-atct-sop#4-1-4
+- airport: MEM
+  id: south
+  name: South
+  depart: [18C, 18R]
+  arrive: [18L, 18R]
+  optional: ["27"]
+  notes: ["27 optional. CRDA: only weight categories E–I authorized on 27; CRDA needs extra spacing on 18L/C and cuts 27 capacity ~40%."]
+  src: kmem-atct-sop#4-1-4
+
+- airport: BNA
+  id: north
+  name: North
+  depart: [2L, 2R]
+  arrive: [2L, 2C, 2R]
+  notes: ["Arrive 2L or 2C, and 2R."]
+  src: kbna-atcttracon-sop#4-1-4
+- airport: BNA
+  id: south
+  name: South
+  depart: [20R, 20C]
+  arrive: [20R, 20L]
+  notes: ["Calm-wind configuration."]
+  src: kbna-atcttracon-sop#4-1-4
+
+- airport: LIT
+  id: northeast
+  name: Northeast
+  depart: [4R, 4L, "36"]
+  arrive: [4R, 4L, "36"]
+  notes: ["Calm-wind configuration per LIT SOP 4-1-4c (Reference Card shows 22R — see discrepancy)."]
+  src: klit-atcttracon-sop#4-1-4
+  flag: D11
+- airport: LIT
+  id: southwest
+  name: Southwest
+  depart: [22R, 22L, "18"]
+  arrive: [22R, 22L, "18"]
+  src: klit-atcttracon-sop#4-1-4
+
+- airport: HSV
+  id: south
+  name: South
+  depart: [18L, 18R]
+  arrive: [18L, 18R]
+  notes: ["Calm-wind configuration."]
+  src: khsv-atcttracon-sop#2-3-2
+- airport: HSV
+  id: north
+  name: North
+  depart: [36L, 36R]
+  arrive: [36L, 36R]
+  src: khsv-atcttracon-sop#2-3-2
+
+- airport: JAN
+  id: calm
+  name: Calm (16L)
+  depart: [16L]
+  arrive: [16L]
+  notes: ["Only the calm-wind runway is published (Reference Card). The JAN departure corridor is set by the ATIS-advertised runway."]
+  src: "reference-card#Runways"
+
+- airport: NQA
+  id: north
+  name: North (follows MEM)
+  depart: ["4"]
+  arrive: ["4"]
+  notes: ["MEM landing north = NQA landing 04."]
+  src: minor-field-reference#KNQA 2.2
+- airport: NQA
+  id: south
+  name: South (follows MEM)
+  depart: ["22"]
+  arrive: ["22"]
+  notes: ["MEM landing south = NQA landing 22. When independent of MEM: land 22, depart 04."]
+  src: minor-field-reference#KNQA 2.2

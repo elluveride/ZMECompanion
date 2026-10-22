@@ -1,0 +1,159 @@
+# Flight progress strips — FAA JO 7110.65BB 2-3-4 (terminal data entries).
+# `faa` is the 7110.65 wording; `fill` says how the app fills the box; `field` names the value key.
+layouts:
+  - kind: departure
+    table: TBL 2-3-4
+    src: faa-7110-65#2-3-4
+    boxes:
+      - { box: "1", faa: Aircraft identification., fill: Callsign as filed, field: callsign }
+      - { box: "2", faa: Revision number (FDIO locations only)., fill: Blank (FDIO-only) }
+      - { box: 2A, faa: Strip request originator., fill: Blank (FDIO-only) }
+      - { box: "3", faa: "Number of aircraft if more than one, wake category indicator, type of aircraft, and aircraft equipment suffix.", fill: "Count, wake category, type and suffix — suffix derived from the ICAO equipment codes per TBL 2-3-10", field: type_box }
+      - { box: "4", faa: Computer identification number if required., fill: CID from the flight plan if present, field: cid }
+      - { box: "5", faa: Secondary radar (beacon) code assigned., fill: Assigned squawk, field: squawk }
+      - { box: "6", faa: Proposed departure time., fill: Filed ETD (Zulu), field: etd }
+      - { box: "7", faa: Requested altitude., fill: "Filed altitude in hundreds (e.g. 350)", field: req_alt }
+      - { box: "8", faa: Departure airport., fill: Departure airport, field: dep }
+      - { box: 8A, faa: OPTIONAL USE., fill: Blank }
+      - { box: 8B, faa: "RA events (required when voice recorders are not operating).", fill: Blank }
+      - { box: "9", faa: "Route, destination, and remarks; altitude/altitude restrictions in the order flown.", fill: "SID.transition, route, destination; climb arrow + initial altitude in hundreds", field: route_box }
+      - { box: 9A, faa: OPTIONAL USE., fill: PDC or VOICE from the DEL checker, field: pdc }
+      - { box: 9B, faa: OPTIONAL USE., fill: Blank }
+      - { box: 9C, faa: OPTIONAL USE., fill: Blank }
+  - kind: arrival
+    table: TBL 2-3-3
+    src: faa-7110-65#2-3-4
+    boxes:
+      - { box: "1", faa: Aircraft identification., fill: Callsign, field: callsign }
+      - { box: "2", faa: Revision number (FDIO locations only)., fill: Blank (FDIO-only) }
+      - { box: 2A, faa: Strip request originator., fill: Blank (FDIO-only) }
+      - { box: "3", faa: "Number of aircraft if more than one, wake category indicator, type of aircraft, and aircraft equipment suffix.", fill: "Count, wake category, type and suffix", field: type_box }
+      - { box: "4", faa: Computer identification number if required., fill: CID if present, field: cid }
+      - { box: "5", faa: Secondary radar (beacon) code assigned., fill: Assigned squawk, field: squawk }
+      - { box: "6", faa: "(FDIO) previous fix; (non-FDIO) inbound airway.", fill: Previous fix, field: prev_fix }
+      - { box: "7", faa: Coordination fix., fill: "STAR entry fix (e.g. BRBBQ)", field: coord_fix }
+      - { box: "8", faa: Estimated time of arrival at the coordination fix or destination airport., fill: ETA (Zulu), field: eta }
+      - { box: 8A, faa: OPTIONAL USE., fill: Blank }
+      - { box: 8B, faa: "RA events (required when voice recorders are not operating).", fill: Blank }
+      - { box: "9", faa: Altitude (in hundreds of feet) and remarks., fill: "Altitude, STAR, expected runway (M03 STAR → runway) and approach scratchpad", field: arr_box }
+      - { box: 9A, faa: "Minimum fuel, destination airport/point out/radar vector/speed adjustment information.", fill: Blank }
+      - { box: 9B, faa: OPTIONAL USE., fill: Blank }
+      - { box: 9C, faa: OPTIONAL USE., fill: Blank }
+  - kind: overflight
+    table: TBL 2-3-5
+    src: faa-7110-65#2-3-4
+    boxes:
+      - { box: "1", faa: Aircraft identification., fill: Callsign, field: callsign }
+      - { box: "2", faa: Revision number (FDIO locations only)., fill: Blank (FDIO-only) }
+      - { box: 2A, faa: Strip request originator., fill: Blank (FDIO-only) }
+      - { box: "3", faa: "Number of aircraft if more than one, wake category indicator, type of aircraft, and aircraft equipment suffix.", fill: "Count, wake category, type and suffix", field: type_box }
+      - { box: "4", faa: Computer identification number if required., fill: CID if present, field: cid }
+      - { box: "5", faa: Secondary radar (beacon) code assigned., fill: Assigned squawk, field: squawk }
+      - { box: "6", faa: Coordination fix., fill: Coordination fix, field: coord_fix }
+      - { box: "7", faa: Overflight coordination indicator (FDIO locations only)., fill: Blank (FDIO-only) }
+      - { box: "8", faa: Estimated time of arrival at the coordination fix., fill: ETA (Zulu), field: eta }
+      - { box: 8A, faa: OPTIONAL USE., fill: Blank }
+      - { box: 8B, faa: "RA events (required when voice recorders are not operating).", fill: Blank }
+      - { box: "9", faa: Altitude and route of flight through the terminal area., fill: Altitude in hundreds and route, field: ovf_box }
+      - { box: 9A, faa: OPTIONAL USE., fill: Blank }
+      - { box: 9B, faa: OPTIONAL USE., fill: Blank }
+      - { box: 9C, faa: OPTIONAL USE., fill: Blank }
+
+# 7110.65 leaves boxes 10–18 to a facility directive. No ZME strip-marking directive was found
+# in the files read (see questions Q2), so these ship as editable defaults.
+box_10_18_defaults:
+  src: faa-7110-65#2-3-4
+  rows:
+    - { box: "10", use: Departure runway (GND taxi-by-direction), field: dep_rwy }
+    - { box: "11", use: Initial RNAV fix or assigned heading, field: fix_or_hdg }
+    - { box: "12", use: Departure frequency, field: depfreq }
+    - { box: "13", use: "Clearance status: CAF, or a TBL 2-3-11 symbol", field: clr_status }
+    - { box: "14", use: Actual departure time, field: atd }
+    - { box: "15", use: Free annotation }
+    - { box: "16", use: Free annotation }
+    - { box: "17", use: Free annotation }
+    - { box: "18", use: Free annotation }
+
+# TBL 2-3-10 Aircraft Equipment Suffixes.
+# nav: none | dme | tacan | rnav | gnss ; xpdr: none | no_c | mode_c ; rvsm applies with any nav.
+equipment_suffixes:
+  src: faa-7110-65#TBL 2-3-10
+  rows:
+    - { rvsm: true, nav: any, xpdr: failed, suffix: H, text: "RVSM, failed transponder" }
+    - { rvsm: true, nav: any, xpdr: failed_c, suffix: O, text: "RVSM, failed Mode C" }
+    - { rvsm: true, nav: none, xpdr: mode_c, suffix: W, text: "RVSM, no RNAV/no GNSS, Mode C" }
+    - { rvsm: true, nav: rnav, xpdr: mode_c, suffix: Z, text: "RVSM, RNAV no GNSS, Mode C" }
+    - { rvsm: true, nav: gnss, xpdr: mode_c, suffix: L, text: "RVSM, GNSS, Mode C" }
+    - { rvsm: false, nav: none, xpdr: none, suffix: X, text: "No DME, no transponder" }
+    - { rvsm: false, nav: none, xpdr: no_c, suffix: T, text: "No DME, transponder no Mode C" }
+    - { rvsm: false, nav: none, xpdr: mode_c, suffix: U, text: "No DME, Mode C" }
+    - { rvsm: false, nav: dme, xpdr: none, suffix: D, text: "DME, no transponder" }
+    - { rvsm: false, nav: dme, xpdr: no_c, suffix: B, text: "DME, transponder no Mode C" }
+    - { rvsm: false, nav: dme, xpdr: mode_c, suffix: A, text: "DME, Mode C" }
+    - { rvsm: false, nav: tacan, xpdr: none, suffix: M, text: "TACAN, no transponder" }
+    - { rvsm: false, nav: tacan, xpdr: no_c, suffix: N, text: "TACAN, transponder no Mode C" }
+    - { rvsm: false, nav: tacan, xpdr: mode_c, suffix: P, text: "TACAN, Mode C" }
+    - { rvsm: false, nav: rnav, xpdr: none, suffix: Y, text: "RNAV no GNSS, no transponder" }
+    - { rvsm: false, nav: rnav, xpdr: no_c, suffix: C, text: "RNAV no GNSS, transponder no Mode C" }
+    - { rvsm: false, nav: rnav, xpdr: mode_c, suffix: I, text: "RNAV no GNSS, Mode C" }
+    - { rvsm: false, nav: gnss, xpdr: none, suffix: V, text: "GNSS, no transponder" }
+    - { rvsm: false, nav: gnss, xpdr: no_c, suffix: S, text: "GNSS, transponder no Mode C" }
+    - { rvsm: false, nav: gnss, xpdr: mode_c, suffix: G, text: "GNSS, Mode C" }
+
+# ICAO flight-plan Item 10 codes used to derive the capabilities above (automation does this
+# per 7110.65 2-3-8). 10a: W = RVSM, G = GNSS, R = PBN (RNAV), T = TACAN, D = DME.
+# 10b: N = none; A, I, X = no pressure-altitude; C, E, H, L, P, S = pressure-altitude.
+icao_item10:
+  src: icao-doc-4444#Appendix 2 Item 10
+  rvsm: [W]
+  gnss: [G]
+  rnav: [R]
+  tacan: [T]
+  dme: [D]
+  xpdr_none: [N]
+  xpdr_no_c: [A, I, X]
+  xpdr_mode_c: [C, E, H, L, P, S]
+
+annotations:
+  - { table: TBL 2-3-11, src: faa-7110-65#TBL 2-3-11, rows: [
+      { code: A, meaning: "Cleared to airport (point of intended landing)" },
+      { code: B, meaning: Center clearance delivered },
+      { code: C, meaning: "ATC clears (when clearance relayed through non-ATC facility)" },
+      { code: CAF, meaning: Cleared as filed },
+      { code: D, meaning: Cleared to depart from the fix },
+      { code: F, meaning: Cleared to the fix },
+      { code: H, meaning: Cleared to hold and instructions issued },
+      { code: L, meaning: Cleared to land },
+      { code: N, meaning: Clearance not delivered },
+      { code: O, meaning: Cleared to the outer marker },
+      { code: PD, meaning: "Cleared to climb/descend at pilot's discretion" },
+      { code: Q, meaning: "Cleared to fly specified sectors of a NAVAID" },
+      { code: T, meaning: "Cleared through (for landing and takeoff through intermediate point)" },
+      { code: V, meaning: Cleared over the fix },
+      { code: X, meaning: "Cleared to cross (airway, route, radial) at (point)" },
+      { code: Z, meaning: Tower jurisdiction } ] }
+  - { table: TBL 2-3-12, src: faa-7110-65#TBL 2-3-12, rows: [
+      { code: BC, meaning: Back course approach },
+      { code: CT, meaning: Contact approach },
+      { code: FA, meaning: Final approach },
+      { code: FMS, meaning: Flight management system approach },
+      { code: GPS, meaning: GPS approach },
+      { code: I, meaning: Initial approach },
+      { code: ILS, meaning: ILS approach },
+      { code: MA, meaning: Missed approach },
+      { code: NDB, meaning: Nondirectional radio beacon approach },
+      { code: OTP, meaning: VFR conditions-on-top },
+      { code: PA, meaning: Precision approach },
+      { code: PT, meaning: Procedure turn },
+      { code: RA, meaning: Resolution advisory (pilot-reported TCAS event) },
+      { code: RH, meaning: Runway heading },
+      { code: RNAV, meaning: Area navigation approach },
+      { code: RP, meaning: "Report immediately upon passing (fix/altitude)" },
+      { code: RX, meaning: Report crossing },
+      { code: SA, meaning: Surveillance approach },
+      { code: SI, meaning: Straight-in approach },
+      { code: TA, meaning: TACAN approach },
+      { code: TL, meaning: Turn left },
+      { code: TR, meaning: Turn right },
+      { code: VA, meaning: Visual approach },
+      { code: VR, meaning: VOR approach } ] }

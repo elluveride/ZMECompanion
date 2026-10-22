@@ -1,0 +1,16 @@
+# STARs. Names/versions as printed on the Reference Card (AIRAC 2604); runway assignment from
+# M03 SOP 6-1-1. `chart` is the FAA d-TPP file stem (aeronav.faa.gov/d-tpp/<cycle>/<dtpp><chart>.pdf).
+- { name: BLUZZ4, airport: MEM, type: rnav, runways: [36R, 18L], chart: bluzz, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: BRBBQ3, airport: MEM, type: rnav, runways: [36L, 18R], chart: brbbq, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: HOBRK3, airport: MEM, type: rnav, runways: [36L, 18R], chart: hobrk, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: VANZE3, airport: MEM, type: rnav, runways: [36R, 18L], chart: vanze, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: DAWGG2, airport: MEM, type: conventional, runways: [36L, 18R], chart: dawgg, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: MARVELL6, alias: UJM, airport: MEM, type: conventional, runways: [36L, 18R], chart: marvell, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: WLDER1, airport: MEM, type: conventional, runways: [36R, 18L], chart: wlder, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: CONDR3, airport: MEM, type: atc_assigned, runways: ["9"], chart: condr, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: MONAA4, airport: MEM, type: atc_assigned, runways: ["27"], chart: monaa, flags: { D9: [name] }, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: HYTHR3, airport: MEM, type: atc_assigned, runways: [36L, 36R, "9", "27"], chart: hythr, src: [m03-tracon-sop#6-1-1, "reference-card#Arrivals (KMEM only)"] }
+- { name: CHSNE3, airport: BNA, type: rnav, runways: [], chart: chsne, src: ["reference-card#Arrivals (BNA)"] }
+- { name: PASLY5, airport: BNA, type: rnav, runways: [], chart: pasly, src: ["reference-card#Arrivals (BNA)"] }
+- { name: RYYMN3, airport: BNA, type: rnav, runways: [], chart: ryymn, src: ["reference-card#Arrivals (BNA)"] }
+- { name: SWFFT3, airport: BNA, type: rnav, runways: [], chart: swfft, src: ["reference-card#Arrivals (BNA)"] }

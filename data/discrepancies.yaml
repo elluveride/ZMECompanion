@@ -1,0 +1,99 @@
+# Conflicts between ZME documents. Each stays `open` (both values shown with a warning badge)
+# until ZME staff confirm. `found: spec` = listed in the MVP spec; `found: build` = found while
+# transcribing for this build. Records point here with `flag: Dn` / `flags: { Dn: [...] }`.
+- id: D1
+  title: Pine Bluff (44) frequency
+  status: open
+  found: spec
+  values:
+    - { label: "4-way combined split table", value: "134.925", src: zme-enroute-sop#3-2-1 }
+    - { label: "HI/UH frequency list", value: "124.925", src: zme-enroute-sop#3-2-4 }
+- id: D2
+  title: MEM pattern altitude
+  status: open
+  found: spec
+  values:
+    - { label: "MEM ATCT SOP", value: "Props 1,300 · Jets 1,800", src: kmem-atct-sop#4-1-2 }
+    - { label: "Reference Card", value: "1,900", src: "reference-card#Runways" }
+- id: D3
+  title: JAN initial IFR altitude
+  status: open
+  found: spec
+  values:
+    - { label: "Reference Card", value: "4,000", src: "reference-card#Initial altitude guidance" }
+    - { label: "Minor Field Reference", value: "5,000 or requested, whichever is lower", src: minor-field-reference#KJAN 2.1 }
+- id: D4
+  title: MEM north-flow initial fix for west RNAV SIDs — BEEAL vs BEALL
+  status: open
+  found: spec
+  values:
+    - { label: "Reference Card, AUTMN6 row", value: BEEAL, src: "reference-card#MEM Departures" }
+    - { label: "Reference Card, every other west SID row", value: BEALL, src: "reference-card#MEM Departures" }
+    - { label: "MEM ATCT SOP heading table", value: BEEAL, src: kmem-atct-sop#4-1-5 }
+    - { label: "MEM RNAV Departure Reference", value: BEEAL, src: mem-departure-reference }
+  note: "Cells are rendered exactly as printed on the Reference Card."
+- id: D5
+  title: "AIT: BNA terminal arrivals entering 33 from 35 — clearance altitude"
+  status: open
+  found: spec
+  values:
+    - { label: "4-1-1(e) step 1", value: FL250, src: zme-enroute-sop#4-1-1(e) }
+    - { label: "4-1-1(e) step 3 fallback (\"if FL350 not available\") and 4-1-2(e)", value: FL350, src: zme-enroute-sop#4-1-2(e) }
+- id: D6
+  title: "AIT: MEM inbounds AOA FL350 (19 → 20 → 21) — altitude Sector 19 enters"
+  status: open
+  found: spec
+  values:
+    - { label: "4-1-2(h)", value: FL250, src: zme-enroute-sop#4-1-2(h) }
+    - { label: "4-1-3(d), same procedure", value: FL350, src: zme-enroute-sop#4-1-3(d) }
+- id: D7
+  title: MEM calm-wind arrival runways
+  status: open
+  found: spec
+  values:
+    - { label: "M03 SOP 6-1-1a", value: "\"36L, 36L and 27\" (typo)", src: m03-tracon-sop#6-1-1 }
+    - { label: "MEM ATCT SOP / Reference Card", value: "Arrive 36L & 36R", src: kmem-atct-sop#4-1-4 }
+- id: D8
+  title: MEM taxi-by-direction — north-direction departures in south flow
+  status: open
+  found: build
+  values:
+    - { label: "MEM ATCT SOP 3-1-1b NORTH", value: "36L/18R, 36C, 36R/18L — 36C has no 18C pair, so south flow gets 18R/18L only", src: kmem-atct-sop#3-1-1 }
+    - { label: "MEM RNAV Departure Reference", value: "CRSON, SELPH, GENEH (north gates) prefer 18C in south ops", src: mem-departure-reference }
+- id: D9
+  title: Runway 27 ATC-assigned STAR name
+  status: open
+  found: build
+  values:
+    - { label: "Reference Card", value: MONAA4, src: "reference-card#Arrivals (KMEM only)" }
+    - { label: "M03 SOP 6-1-1", value: "MONNA#", src: m03-tracon-sop#6-1-1 }
+  note: "FAA d-TPP (cycle 2610) publishes MONAA FOUR (RNAV)."
+- id: D10
+  title: "AIT: BLUZZ/WLDER arrivals via 61 → 33 → 26 — route boundary and final transfer"
+  status: open
+  found: build
+  values:
+    - { label: "Area 1, 4-1-1(g)", value: "From J29 clockwise to Q34; if 33 doesn't hand off, transfer to 33", src: zme-enroute-sop#4-1-1(g) }
+    - { label: "Area 5, 4-1-5(d)", value: "From J29 clockwise to J42; Sector 61 transfers communications to Sector 26", src: zme-enroute-sop#4-1-5(d) }
+- id: D11
+  title: LIT calm-wind configuration
+  status: open
+  found: build
+  values:
+    - { label: "LIT ATCT SOP 4-1-4c", value: "NORTHEAST (4R, 4L, 36)", src: klit-atcttracon-sop#4-1-4 }
+    - { label: "Reference Card", value: "Calm depart 22R / arrive 22R", src: "reference-card#Runways" }
+- id: D12
+  title: AUTMN6 row layout on the Reference Card
+  status: open
+  found: build
+  values:
+    - { label: "Reference Card text layer", value: "Extra AUTMN2 / \"RWY36 RWY18Lc RWY18R\" header row printed above the AUTMN6 row", src: "reference-card#MEM Departures" }
+    - { label: "Rendered here", value: "AUTMN6 LUVEC · BEEAL · BEEAL · GADEC · HURTN", src: "reference-card#MEM Departures" }
+  note: "Low impact; worth confirming the card's AUTMN row with the Facilities Engineer."
+- id: D13
+  title: BNA south-ops initial fix — BUBBY vs BUBYY
+  status: open
+  found: build
+  values:
+    - { label: "Reference Card (DANLS, GDOGG, KRSTA, PARDN)", value: BUBBY, src: "reference-card#Nashville Departures" }
+    - { label: "BNA RNAV Departure Reference", value: BUBYY, src: bna-rnav-departure-reference }

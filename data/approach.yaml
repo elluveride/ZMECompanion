@@ -1,0 +1,51 @@
+# M03 feeder → final handoff altitudes (M03 SOP 2-2-2b ARE, 2-2-3b ARW). All at 210 kt or less.
+feeder_altitudes:
+  airport: MEM
+  speed: "210 kt or less"
+  src: [m03-tracon-sop#2-2-2, m03-tracon-sop#2-2-3]
+  rows:
+    - { traffic: "Base traffic (36/18)", are: 5000, arw: 6000 }
+    - { traffic: "Downwind traffic (36/18)", are: 3000, arw: 4000 }
+    - { traffic: "North traffic to 27", are: 4000, arw: 5000 }
+    - { traffic: "South traffic to 27", are: 5000, arw: 7000 }
+    - { traffic: "Across the airport to the adjacent arrival", are: 8000, arw: 9000, note: "Remain within ARE's airspace unless coordinated" }
+
+# M03 approach scratchpads (M03 SOP 6-1-2).
+scratchpads:
+  - { facility: M03, kind: primary, runway: 18L, visual: 18L, instrument: 18E, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: 18C, visual: 18C, instrument: 18M, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: 18R, visual: 18R, instrument: 18W, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: 36L, visual: 36L, instrument: 36W, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: 36C, visual: 36C, instrument: 36M, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: 36R, visual: 36R, instrument: 36E, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: "9", visual: "9", instrument: 9N, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, kind: primary, runway: "27", visual: "27", instrument: 27N, src: m03-tracon-sop#6-1-2 }
+
+secondary_scratchpads:
+  - { facility: M03, code: V/A, meaning: Cleared visual approach, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: V/F, meaning: "Cleared visual approach, following preceding aircraft", src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: V/S, meaning: Maintaining visual separation from the nearest arrival on the adjacent final, src: m03-tracon-sop#6-1-2 }
+
+satellite_scratchpads:
+  - { facility: M03, code: A17, meaning: AWM ILS or LOC/RNAV RWY 17, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: A35, meaning: AWM RNAV RWY 35, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: V18, meaning: OLV RNAV/ILS or LOC RWY 18, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: V36, meaning: OLV RNAV/LOC RWY 36, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: H18, meaning: M41 RNAV RWY 18, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: KV1, meaning: M04 RNAV RWY 1, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: B18, meaning: 2M8 RNAV/VOR RWY 18, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: B36, meaning: 2M8 RNAV RWY 36, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: D17, meaning: M01 RNAV RWY 17, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: Q22, meaning: NQA ILS or LOC/VOR RWY 22, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: Q04, meaning: NQA RNAV RWY 4, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: S19, meaning: FYE RNAV RWY 19, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: Z19, meaning: 7M4 RNAV RWY 19, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: T35, meaning: UTA ILS or LOC/RNAV RWY 35, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: T17, meaning: UTA RNAV RWY 17, src: m03-tracon-sop#6-1-2 }
+  - { facility: M03, code: P19, meaning: PMU LOC/RNAV RWY 19, src: m03-tracon-sop#6-1-2 }
+  # JAN (Minor Field Reference, KJAN 3.1 STARS scratchpad entries)
+  - { facility: JAN_TRACON, code: "16R / 16L / 34L / 34R", meaning: "Y scratchpad: runway", src: minor-field-reference#KJAN 3.1 }
+  - { facility: JAN_TRACON, code: "I · G · T · V · O · S", meaning: "Y+ primary: ILS · GPS · TAC/VOR · Visual · Overhead · Surveillance", src: minor-field-reference#KJAN 3.1 }
+  - { facility: JAN_TRACON, code: "E · W · T · Z · F · P", meaning: "Y+ secondary: East turnout · West turnout · Stay with tower · Return to radar · Full stop · Published missed", src: minor-field-reference#KJAN 3.1 }
+  - { facility: JAN_TRACON, code: "K16 · K34 · K11 · K29", meaning: HKS arrivals, src: minor-field-reference#KJAN 3.1 }
+  - { facility: JAN_TRACON, code: "M · J · U", meaning: "Towerless fields: MBO · JVW · UMC", src: minor-field-reference#KJAN 3.1 }

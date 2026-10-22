@@ -1,0 +1,6 @@
+# Open questions that are not conflicts between two documents.
+- { id: Q1, text: "MEM squawk code ranges appear in none of the files read — confirm whether CRC auto-assignment is the expectation." }
+- { id: Q2, text: "No ZME strip-marking directive was found for 7110.65 boxes 10–18; the app ships editable defaults. Ask the Facilities Engineer." }
+- { id: Q3, text: "Does vStrips expose an import or API? If not, copy-per-box stays the MVP flow." }
+- { id: Q4, text: "The Reference Card BNA arrival notes cite \"ZME-42/GHM LO\"; Enroute SOP v1.3 deleted the BNA sector (rev. 10/30/25) and 3-2-2 lists no sector 42. Confirm which sector the TCP rule now keys on." }
+- { id: Q5, text: "BNA SOP lists Arrival Radar West (BNA_W_APP) and Satellite Radar West (BNA_G_APP) both on 120.600." }

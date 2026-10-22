@@ -1,0 +1,7 @@
+# MEM ATCT SOP 3-1-1b — during high volume, taxi to the runway for the direction of flight.
+# `printed` is the SOP text; `north`/`south` split the runway pairs by flow.
+# Direction of flight comes from the SID's ELVIS gate (MEM RNAV Departure Reference).
+- { airport: MEM, direction: N, printed: "36L/18R, 36C, 36R/18L", north: [36L, 36C, 36R], south: [18R, 18L], flags: { D8: [south] }, src: kmem-atct-sop#3-1-1 }
+- { airport: MEM, direction: S, printed: "36L/18R, 18C, 36R/18L", north: [36L, 36R], south: [18R, 18C, 18L], src: kmem-atct-sop#3-1-1 }
+- { airport: MEM, direction: E, printed: "36C/18C, 36R/18L", north: [36C, 36R], south: [18C, 18L], src: kmem-atct-sop#3-1-1 }
+- { airport: MEM, direction: W, printed: "36L/18R", north: [36L], south: [18R], src: kmem-atct-sop#3-1-1 }
