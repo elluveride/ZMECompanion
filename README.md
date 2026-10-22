@@ -12,6 +12,7 @@ npm run dev          # http://localhost:5173
 npm run build        # validate data → cross-check sources → typecheck → dist/
 npm test             # unit + acceptance checks (vitest)
 npm run test:e2e     # browser acceptance checks at 1080p and phone size (Playwright; build first)
+npm run smoke:dev    # push the entry points through the dev server's transform pipeline
 ```
 
 ## What's on each page
@@ -44,7 +45,9 @@ All content lives in `data/*.yaml`. The UI is a pure function of (position, airp
 1. **Transcribe** from the PDF into YAML by hand. PDF text extraction of some files is unreliable (the Minor Field Reference comes out garbled).
 2. **`npm run validate`** checks the schema (`schema/schema.ts`): every record has a source; every source doc and discrepancy exists; every frequency matches `1[1-3]x.xx(x)` (localizers use the NAV band); every runway exists in its airport's runway list; SIDs, ELVIS transitions, sectors and flows referenced by other records exist. The Vite plugin runs the same check, so a bad record fails `npm run dev` and `npm run build`.
 3. **`npm run crosscheck`** compares values that appear in two sources: callsign ↔ frequency, airport initial altitude ↔ Reference Card guidance, and Reference Card SID fixes ↔ the RNAV Departure References (`dep_ref`), runway by runway. A conflict with no discrepancy flag fails the run.
-4. **`npm run build`** produces a static PWA in `dist/`. `base: './'`, so it works from any static host or a subpath (e.g. GitHub Pages).
+4. **`npm run build`** produces a static PWA in `dist/`. `base: './'`, so it works from any static host or a subpath.
+
+**Hosting.** `.github/workflows/pages.yml` rebuilds on every push to `main` and pushes `dist/` to the `gh-pages` branch, served at https://elluveride.github.io/ZMECompanion/ (Settings → Pages → Deploy from a branch → `gh-pages` / root).
 
 **Staleness watch.** `.github/workflows/staleness.yml` runs `scripts/staleness.ts` daily. It reads `https://memphisartcc.com/files/all`, compares each file's "Updated" date to `site_updated`, and opens (or comments on) an issue when a file is newer, new, or removed. You can run it locally with `npm run staleness`.
 

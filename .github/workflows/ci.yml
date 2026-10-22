@@ -20,6 +20,8 @@ jobs:
         run: npm run crosscheck
       - run: npm run typecheck
       - run: npm test
+      - name: Dev server smoke test
+        run: npm run smoke:dev
       - run: npx vite build
       - run: npx playwright install --with-deps chromium
       - name: Acceptance checks in a browser
@@ -31,3 +33,19 @@ jobs:
         with:
           name: dist
           path: dist
+
+  # Most controllers run Windows; path handling differs there (backslashes, spaces in paths).
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm test
+      - name: Dev server smoke test
+        run: npm run smoke:dev
+      - run: npx vite build
